@@ -17,22 +17,11 @@ class Coordinator{
 }
 
 extension Coordinator: ViewControllerDelegate {
-    func done( urlString:String) {
-    
-        
-        func eventOccurred(with type: Event, urlStr: String, titleStr: String) {
-            // print ("EVENT OCCURRED CALLED, urlStr: \(urlStr)")
-            let vc = BottleRocketController()
-            
-//            vc.urlStr = urlStr
-//             vc.coordinator = self
-//            navigationController?.pushViewController(vc, animated: false)
-            
-        }
-       
-        }
-        navigationController.pushViewController(vc, animated: true)
-        
+    func done( selecteRestaurant:Restaurant) {
+//       // let vc = BottleRocketController()
+//        
+//        navigationController.pushViewController(vc, animated: true)
+//        
     }
 }
 

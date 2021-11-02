@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         let window = UIWindow(windowScene: windowScene)
-        let controller = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController() as! SearchViewController
+        let controller = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController() as! ViewController
         let coordinator = Coordinator(controller)
         controller.delegate = coordinator
         window.rootViewController = coordinator.navigationController
@@ -58,5 +58,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
-}
 

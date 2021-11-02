@@ -7,31 +7,38 @@
 
 import UIKit
 
-protocol SearchViewControllerDelegate {
-    func done(urlString:String)
+protocol ViewControllerDelegate {
+    func done(selecteRestaurant:Restaurant)
 }
 class ViewController: UIViewController {
     
+    var delegate:ViewControllerDelegate?
+    var viewModel = RestaurantViewModel()
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
         setupViews()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setupVM()
     }
 }
 extension ViewController:UICollectionViewDataSource
 {
     
-    func setupViews() {
+    func setupViews(){
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
     }
-    
+    func setupVM(){
+        viewModel.updateUI =  { self.collectionView.reloadData() }
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.numberOfRows
     }
     
     
@@ -47,7 +54,15 @@ extension ViewController:UICollectionViewDataSource
 extension ViewController: UICollectionViewDelegate
 {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //coordinator?.done(
+        
+        let selectedRestaurant = viewModel.getRecordAtRow(row: indexPath.row)
+       
+        
+        if let selectedRestaurant = selectedRestaurant {
+            delegate?.done(selecteRestaurant: selectedRestaurant)
+        }
+        
+       
     }
 
 }

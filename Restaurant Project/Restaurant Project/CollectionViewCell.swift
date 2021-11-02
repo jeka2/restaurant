@@ -16,17 +16,14 @@ class CollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
     func configure(model: Restaurant?) {
-        guard let model = model else { return }
-       
-        if let name = model.name
-        {
-            nameLabel.text = name
-        }
-        if let category = model.category
-        {
-            categoryLabel.text = category
-        }
+        guard let model = model else {return}
+        nameLabel.text = model.name
+        categoryLabel.text = model.category
+        
+        
+     
         
     }
     
