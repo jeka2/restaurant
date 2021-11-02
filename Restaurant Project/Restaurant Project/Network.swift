@@ -26,4 +26,23 @@ class Network {
             }
         }.resume()
     }
+    
+    func fetchImage(imageUrl: String, completion: @escaping (UIImage) -> ()) {
+        guard let url = URL(string: imageUrl) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, _, _ in
+            guard let data = data else {
+                return
+            }
+            if let image = UIImage(data: data) {
+                ImageCache.shared.write(imageStr: imageUrl, image: image)
+                
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            }
+            
+        }
+    }
 }
+
