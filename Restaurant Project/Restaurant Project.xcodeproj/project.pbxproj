@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47A6CB3127319FDF00692C57 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A6CB3027319FDF00692C57 /* CollectionViewCell.swift */; };
+		47A6CB3327319FEA00692C57 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47A6CB3227319FEA00692C57 /* CollectionViewCell.xib */; };
+		47A6CB352731A12A00692C57 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A6CB342731A12A00692C57 /* Coordinator.swift */; };
 		A1054C4C273187E9005FB57A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C4B273187E9005FB57A /* AppDelegate.swift */; };
 		A1054C4E273187E9005FB57A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C4D273187E9005FB57A /* SceneDelegate.swift */; };
 		A1054C50273187E9005FB57A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C4F273187E9005FB57A /* ViewController.swift */; };
@@ -16,6 +19,10 @@
 		A1054C63273187EA005FB57A /* Restaurant_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C62273187EA005FB57A /* Restaurant_ProjectTests.swift */; };
 		A1054C6D273187EA005FB57A /* Restaurant_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C6C273187EA005FB57A /* Restaurant_ProjectUITests.swift */; };
 		A1054C6F273187EA005FB57A /* Restaurant_ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C6E273187EA005FB57A /* Restaurant_ProjectUITestsLaunchTests.swift */; };
+		A1054C84273192B3005FB57A /* BottleRocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C83273192B3005FB57A /* BottleRocketController.swift */; };
+		A1054C8627319378005FB57A /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C8527319378005FB57A /* RestaurantViewModel.swift */; };
+		A1054C8827319384005FB57A /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C8727319384005FB57A /* RestaurantModel.swift */; };
+		A1054C8A27319678005FB57A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C8927319678005FB57A /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		47A6CB3027319FDF00692C57 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		47A6CB3227319FEA00692C57 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		47A6CB342731A12A00692C57 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A1054C48273187E9005FB57A /* Restaurant Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Restaurant Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1054C4B273187E9005FB57A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1054C4D273187E9005FB57A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +59,10 @@
 		A1054C68273187EA005FB57A /* Restaurant ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Restaurant ProjectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1054C6C273187EA005FB57A /* Restaurant_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant_ProjectUITests.swift; sourceTree = "<group>"; };
 		A1054C6E273187EA005FB57A /* Restaurant_ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant_ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A1054C83273192B3005FB57A /* BottleRocketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleRocketController.swift; sourceTree = "<group>"; };
+		A1054C8527319378005FB57A /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
+		A1054C8727319384005FB57A /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
+		A1054C8927319678005FB57A /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +93,7 @@
 		A1054C3F273187E8005FB57A = {
 			isa = PBXGroup;
 			children = (
+				47A6CB342731A12A00692C57 /* Coordinator.swift */,
 				A1054C4A273187E9005FB57A /* Restaurant Project */,
 				A1054C61273187EA005FB57A /* Restaurant ProjectTests */,
 				A1054C6B273187EA005FB57A /* Restaurant ProjectUITests */,
@@ -103,9 +118,15 @@
 				A1054C4D273187E9005FB57A /* SceneDelegate.swift */,
 				A1054C4F273187E9005FB57A /* ViewController.swift */,
 				A1054C51273187E9005FB57A /* Main.storyboard */,
+				47A6CB3227319FEA00692C57 /* CollectionViewCell.xib */,
+				47A6CB3027319FDF00692C57 /* CollectionViewCell.swift */,
 				A1054C54273187EA005FB57A /* Assets.xcassets */,
 				A1054C56273187EA005FB57A /* LaunchScreen.storyboard */,
 				A1054C59273187EA005FB57A /* Info.plist */,
+				A1054C83273192B3005FB57A /* BottleRocketController.swift */,
+				A1054C8527319378005FB57A /* RestaurantViewModel.swift */,
+				A1054C8727319384005FB57A /* RestaurantModel.swift */,
+				A1054C8927319678005FB57A /* Network.swift */,
 			);
 			path = "Restaurant Project";
 			sourceTree = "<group>";
@@ -233,6 +254,7 @@
 			files = (
 				A1054C58273187EA005FB57A /* LaunchScreen.storyboard in Resources */,
 				A1054C55273187EA005FB57A /* Assets.xcassets in Resources */,
+				47A6CB3327319FEA00692C57 /* CollectionViewCell.xib in Resources */,
 				A1054C53273187E9005FB57A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,8 +281,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1054C50273187E9005FB57A /* ViewController.swift in Sources */,
+				A1054C84273192B3005FB57A /* BottleRocketController.swift in Sources */,
+				47A6CB3127319FDF00692C57 /* CollectionViewCell.swift in Sources */,
+				A1054C8627319378005FB57A /* RestaurantViewModel.swift in Sources */,
 				A1054C4C273187E9005FB57A /* AppDelegate.swift in Sources */,
+				A1054C8827319384005FB57A /* RestaurantModel.swift in Sources */,
+				A1054C8A27319678005FB57A /* Network.swift in Sources */,
 				A1054C4E273187E9005FB57A /* SceneDelegate.swift in Sources */,
+				47A6CB352731A12A00692C57 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

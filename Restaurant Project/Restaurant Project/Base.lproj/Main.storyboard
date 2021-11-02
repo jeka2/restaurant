@@ -16,23 +16,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PA2-aw-Mqd">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PA2-aw-Mqd">
+                                <rect key="frame" x="0.0" y="779" width="414" height="83"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem systemItem="favorites" id="OAO-Lo-4Z6"/>
                                     <tabBarItem systemItem="more" id="nKK-DV-RKS"/>
                                 </items>
                             </tabBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2nZ-EA-wSL">
+                                <rect key="frame" x="0.0" y="88" width="414" height="691"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q4v-Fi-8pX">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch Tyme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owK-EP-VRo">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                <color key="backgroundColor" red="0.60089381679999998" green="1" blue="0.53174082550000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="rgY-iq-xQF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="owK-EP-VRo" secondAttribute="trailing" id="8pb-BY-nOc"/>
+                            <constraint firstItem="2nZ-EA-wSL" firstAttribute="top" secondItem="owK-EP-VRo" secondAttribute="bottom" constant="8" symbolic="YES" id="9k2-aY-nZd"/>
+                            <constraint firstItem="2nZ-EA-wSL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Agd-Im-MWq"/>
+                            <constraint firstItem="owK-EP-VRo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="FWz-4b-eIU"/>
+                            <constraint firstItem="2nZ-EA-wSL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GH0-Qd-ypL"/>
+                            <constraint firstItem="PA2-aw-Mqd" firstAttribute="top" secondItem="2nZ-EA-wSL" secondAttribute="bottom" id="J61-ds-7xT"/>
+                            <constraint firstItem="PA2-aw-Mqd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Uky-Ri-js9"/>
+                            <constraint firstItem="owK-EP-VRo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="htt-XV-mQw"/>
+                            <constraint firstItem="PA2-aw-Mqd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sbN-5L-iRQ"/>
+                            <constraint firstItem="PA2-aw-Mqd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="t5I-m4-wv0"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="2nZ-EA-wSL" id="WOq-o9-8vc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23" y="56"/>
+            <point key="canvasLocation" x="-23.188405797101453" y="55.580357142857139"/>
         </scene>
     </scenes>
     <resources>
