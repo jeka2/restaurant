@@ -17,6 +17,9 @@
 		A1054C6D273187EA005FB57A /* Restaurant_ProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C6C273187EA005FB57A /* Restaurant_ProjectUITests.swift */; };
 		A1054C6F273187EA005FB57A /* Restaurant_ProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C6E273187EA005FB57A /* Restaurant_ProjectUITestsLaunchTests.swift */; };
 		A1054C84273192B3005FB57A /* BottleRocketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C83273192B3005FB57A /* BottleRocketController.swift */; };
+		A1054C8627319378005FB57A /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C8527319378005FB57A /* RestaurantViewModel.swift */; };
+		A1054C8827319384005FB57A /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C8727319384005FB57A /* RestaurantModel.swift */; };
+		A1054C8A27319678005FB57A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C8927319678005FB57A /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		A1054C6C273187EA005FB57A /* Restaurant_ProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant_ProjectUITests.swift; sourceTree = "<group>"; };
 		A1054C6E273187EA005FB57A /* Restaurant_ProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant_ProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A1054C83273192B3005FB57A /* BottleRocketController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleRocketController.swift; sourceTree = "<group>"; };
+		A1054C8527319378005FB57A /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
+		A1054C8727319384005FB57A /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
+		A1054C8927319678005FB57A /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,9 @@
 				A1054C56273187EA005FB57A /* LaunchScreen.storyboard */,
 				A1054C59273187EA005FB57A /* Info.plist */,
 				A1054C83273192B3005FB57A /* BottleRocketController.swift */,
+				A1054C8527319378005FB57A /* RestaurantViewModel.swift */,
+				A1054C8727319384005FB57A /* RestaurantModel.swift */,
+				A1054C8927319678005FB57A /* Network.swift */,
 			);
 			path = "Restaurant Project";
 			sourceTree = "<group>";
@@ -263,7 +272,10 @@
 			files = (
 				A1054C50273187E9005FB57A /* ViewController.swift in Sources */,
 				A1054C84273192B3005FB57A /* BottleRocketController.swift in Sources */,
+				A1054C8627319378005FB57A /* RestaurantViewModel.swift in Sources */,
 				A1054C4C273187E9005FB57A /* AppDelegate.swift in Sources */,
+				A1054C8827319384005FB57A /* RestaurantModel.swift in Sources */,
+				A1054C8A27319678005FB57A /* Network.swift in Sources */,
 				A1054C4E273187E9005FB57A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
