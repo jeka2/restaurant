@@ -14,13 +14,19 @@ class CollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+       nameLabel.font = UIFont(name:"Avenir Next Demi Bold",size:16)
+        nameLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+        categoryLabel.font = UIFont(name:"Avenir Next Demi Bold",size:12)
+         categoryLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+        
     }
     
     func configure(model: Restaurant?) {
         guard let model = model else {return}
+        
         nameLabel.text = model.name
         categoryLabel.text = model.category
+       // imageView.image
         
         
      

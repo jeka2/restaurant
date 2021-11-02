@@ -10,7 +10,10 @@ import Foundation
 class RestaurantViewModel {
     var restaurantInfo: RestaurantResponse? {
         didSet {
-            updateUI?()
+            DispatchQueue.main.async {
+                
+                self.updateUI?()
+            }
         }
     }
     func fetchRestaurantInfo() {
