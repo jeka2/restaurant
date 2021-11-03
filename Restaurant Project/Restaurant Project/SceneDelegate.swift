@@ -26,12 +26,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarBackgroundImage = UIImage(named: "cellGradientBackground")
         coordinator.navigationController.tabBarItem = UITabBarItem(title: "Lunch", image: lunchImage, tag: 0)
         tabBar.viewControllers = [coordinator.navigationController, createBottleRocketNC()]
-        tabBar.tabBar.backgroundImage = tabBarBackgroundImage
+       // imageView.contentMode = UIView.ContentMode.scaleAspectFill
+        //tabBar.tabBar.backgroundImage = tabBarBackgroundImage
+  
         tabBar.tabBar.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0
         )
         
         tabBar.tabBar.isTranslucent = false
-        //tabBar.tabBar.isOpaque = false
         window.rootViewController = tabBar
         // window.rootViewController = coordinator.navigationController
         self.window = window

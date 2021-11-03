@@ -22,8 +22,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        
-        
+        setupNavBar()
+      
+    }
+    
+    func setupNavBar(){
         let rightBarButton = UIBarButtonItem(image: UIImage(named: "icon_map"), style: .done, target: self, action: nil)
         rightBarButton.tintColor = .white
         
@@ -68,9 +71,11 @@ extension ViewController: UICollectionViewDelegate
 }
 extension ViewController: UICollectionViewDelegateFlowLayout
 {
-    //size of each CollecionViewCell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width:(collectionView.bounds.size.width), height:180)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
 
