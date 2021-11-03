@@ -17,13 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8sm-ty-4gQ">
-                                <rect key="frame" x="0.0" y="82" width="414" height="244"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="244" id="hcC-E8-Geb"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="82" width="414" height="313.5"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJt-zl-RrY">
-                                <rect key="frame" x="0.0" y="326" width="414" height="136"/>
+                                <rect key="frame" x="0.0" y="395.5" width="414" height="66.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhl-Al-1qq">
                                         <rect key="frame" x="34" y="8" width="42" height="21"/>
@@ -56,6 +53,7 @@
                             <constraint firstItem="RJt-zl-RrY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PFg-rW-Xnb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RJt-zl-RrY" secondAttribute="bottom" constant="400" id="TI1-vg-GtK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="19l-qg-ra6" secondAttribute="bottom" constant="227" id="cog-sg-eIi"/>
+                            <constraint firstItem="8sm-ty-4gQ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.35" id="peL-ow-7kE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8sm-ty-4gQ" secondAttribute="trailing" id="tWb-Xf-v48"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RJt-zl-RrY" secondAttribute="trailing" id="u2A-GW-NK3"/>
                             <constraint firstItem="19l-qg-ra6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="137" id="xUi-V8-912"/>
