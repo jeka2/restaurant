@@ -263,8 +263,11 @@
 			files = (
 				A1054C58273187EA005FB57A /* LaunchScreen.storyboard in Resources */,
 				A1054C55273187EA005FB57A /* Assets.xcassets in Resources */,
+<<<<<<< HEAD
 				47A6CB3327319FEA00692C57 /* CollectionViewCell.xib in Resources */,
+=======
 				A16043902731D91A006CAF24 /* DetailView.storyboard in Resources */,
+>>>>>>> 83e0aa0382b1214a68106cf152cd723d233b0200
 				A1054C53273187E9005FB57A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,8 +296,11 @@
 				A160438E2731D76A006CAF24 /* DetailViewController.swift in Sources */,
 				A1054C50273187E9005FB57A /* ViewController.swift in Sources */,
 				A1054C84273192B3005FB57A /* BottleRocketController.swift in Sources */,
+<<<<<<< HEAD
 				47A6CB3127319FDF00692C57 /* CollectionViewCell.swift in Sources */,
+=======
 				A160438C2731B772006CAF24 /* ImageCache.swift in Sources */,
+>>>>>>> 83e0aa0382b1214a68106cf152cd723d233b0200
 				A1054C8627319378005FB57A /* RestaurantViewModel.swift in Sources */,
 				A1054C4C273187E9005FB57A /* AppDelegate.swift in Sources */,
 				A1054C8827319384005FB57A /* RestaurantModel.swift in Sources */,
