@@ -5,12 +5,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "icon_map@2x.png",
+      "filename" : "ic_webRefresh@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon_map@3x.png",
+      "filename" : "ic_webRefresh@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
