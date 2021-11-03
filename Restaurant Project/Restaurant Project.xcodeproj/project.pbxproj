@@ -21,6 +21,8 @@
 		A1054C8827319384005FB57A /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C8727319384005FB57A /* RestaurantModel.swift */; };
 		A1054C8A27319678005FB57A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1054C8927319678005FB57A /* Network.swift */; };
 		A160438C2731B772006CAF24 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160438B2731B772006CAF24 /* ImageCache.swift */; };
+		A160438E2731D76A006CAF24 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160438D2731D76A006CAF24 /* DetailViewController.swift */; };
+		A16043902731D91A006CAF24 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A160438F2731D91A006CAF24 /* DetailView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		A1054C8727319384005FB57A /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		A1054C8927319678005FB57A /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A160438B2731B772006CAF24 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		A160438D2731D76A006CAF24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A160438F2731D91A006CAF24 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 				A1054C8727319384005FB57A /* RestaurantModel.swift */,
 				A1054C8927319678005FB57A /* Network.swift */,
 				A160438B2731B772006CAF24 /* ImageCache.swift */,
+				A160438D2731D76A006CAF24 /* DetailViewController.swift */,
+				A160438F2731D91A006CAF24 /* DetailView.storyboard */,
 			);
 			path = "Restaurant Project";
 			sourceTree = "<group>";
@@ -248,6 +254,7 @@
 			files = (
 				A1054C58273187EA005FB57A /* LaunchScreen.storyboard in Resources */,
 				A1054C55273187EA005FB57A /* Assets.xcassets in Resources */,
+				A16043902731D91A006CAF24 /* DetailView.storyboard in Resources */,
 				A1054C53273187E9005FB57A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A160438E2731D76A006CAF24 /* DetailViewController.swift in Sources */,
 				A1054C50273187E9005FB57A /* ViewController.swift in Sources */,
 				A1054C84273192B3005FB57A /* BottleRocketController.swift in Sources */,
 				A160438C2731B772006CAF24 /* ImageCache.swift in Sources */,
