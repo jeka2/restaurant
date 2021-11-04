@@ -20,10 +20,10 @@ class FavoritesCoordinator{
     }
 }
 
-extension FavoritesCoordinator: FavoritesVCDelegate {
-    func done( ) {
-//         let vc = DetailViewController()
-//        navigationController.pushViewController(vc, animated: true)
-    }
-}
+//extension FavoritesCoordinator: FavoritesVCDelegate {
+//    func done( ) {
+////         let vc = DetailViewController()
+////        navigationController.pushViewController(vc, animated: true)
+//    }
+//}
 

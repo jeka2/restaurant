@@ -11,7 +11,7 @@
         <!--Detail View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DetailViewController" customModule="Restaurant_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailView" id="BYZ-38-t0r" customClass="DetailViewController" customModule="Restaurant_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,11 +113,12 @@
                     <connections>
                         <outlet property="categoryLabel" destination="GKT-8z-0ui" id="i7G-nA-Gy7"/>
                         <outlet property="cityStateZipLabel" destination="E1D-JL-owN" id="Ety-Lm-gqh"/>
-                        <outlet property="mapView" destination="8sm-ty-4gQ" id="EMk-wi-h3t"/>
+                        <outlet property="mapView" destination="8sm-ty-4gQ" id="Mam-Ia-uqQ"/>
                         <outlet property="streetLabel" destination="aGK-uV-Uxx" id="Yzc-GR-kfq"/>
                         <outlet property="telephoneLabel" destination="Kq6-YI-gfv" id="FFc-kf-0aB"/>
                         <outlet property="titleBackgroundView" destination="aIu-Qz-19Z" id="BnE-sg-0tk"/>
                         <outlet property="titleLabel" destination="nIp-eT-UD1" id="lvh-GI-0fD"/>
+                        <outlet property="titleSection" destination="aIu-Qz-19Z" id="Bgd-mg-EX8"/>
                         <outlet property="twitterHandleLabel" destination="eCC-RF-BUs" id="tW3-Qq-IPJ"/>
                     </connections>
                 </viewController>

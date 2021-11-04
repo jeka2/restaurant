@@ -22,7 +22,9 @@ class Coordinator{
 
 extension Coordinator: ViewControllerDelegate {
     func done( selecteRestaurant:Restaurant) {
-         let vc = DetailViewController()
+        
+       let vc = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+        
         navigationController.pushViewController(vc, animated: true)
     }
 }
