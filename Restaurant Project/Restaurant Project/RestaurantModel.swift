@@ -59,6 +59,8 @@ struct ContactInfo : Decodable {
 }
 
 struct LocationInfo : Decodable {
+    let lat : Int?
+    let lng : Int?
     let address : String?
     let city : String?
     let state : String?
