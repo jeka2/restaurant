@@ -6,25 +6,29 @@
 //
 
 import UIKit
-
+//
 //protocol FavaritesVCDelegate {
 //    func done()
 //}
 
 class FavoritesViewController: UIViewController {
+    
     @IBOutlet weak var collectionView: UICollectionView!
     let viewModel = RestaurantViewModel(fromCache: true)
-    var coordinator: ViewControllerDelegate?
+   // var delegate: FavoritesVCDelegate?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        setupCollectionView()
     }
     
     private func setupCollectionView() {
+    
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
+        
     }
 
 }
