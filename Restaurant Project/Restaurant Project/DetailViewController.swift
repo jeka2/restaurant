@@ -47,15 +47,27 @@ class DetailViewController: UIViewController {
         self.model = model
     }
     
-
+    private var addressForSearch: String? {
+        guard let address = model?.location?.address else {
+            return nil
+        }
+        guard let city = model?.location?.city else {
+            return address
+        }
+        guard let state = model?.location?.state else {
+            return "\(address),\(city)"
+        }
+        return "\(address),\(city),\(state)"
+    }
 
 }
 
 
 extension DetailViewController : MKMapViewDelegate {
     private func getAddress() {
+        guard let address = addressForSearch else { return }
         let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString("222 Northeast drive, fort wayne") { (placemarks, error) in
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
             
             guard let placemarks = placemarks, let location = placemarks.first?.location else {
                 print("no location found")
