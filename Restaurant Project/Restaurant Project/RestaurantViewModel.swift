@@ -12,6 +12,7 @@ class RestaurantViewModel {
     var restaurantInfo: RestaurantResponse? {
         didSet {
             DispatchQueue.main.async {
+                
                 self.updateUI?()
             }
         }

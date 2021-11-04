@@ -31,9 +31,12 @@ class Network {
         guard let url = URL(string: imageUrl) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, _ in
+            
             guard let data = data else {
+                
                 return
             }
+            
             if let image = UIImage(data: data) {
                 ImageCache.shared.write(imageStr: imageUrl, image: image)
                 
@@ -42,7 +45,7 @@ class Network {
                 }
             }
             
-        }
+        }.resume()
     }
 }
 
