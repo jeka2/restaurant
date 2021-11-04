@@ -1,5 +1,5 @@
 //
-//  Coordinator.swift
+//  FavoritesCoordinator.swift
 //  Restaurant Project
 //
 //  Created by rave on 11/2/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 //coordinator for Main ViewController
-class Coordinator{
+class FavoritesCoordinator{
     let navigationController: UINavigationController
     
     init(_ rootController: UIViewController) {
@@ -20,10 +20,10 @@ class Coordinator{
     }
 }
 
-extension Coordinator: ViewControllerDelegate {
-    func done( selecteRestaurant:Restaurant) {
-         let vc = DetailViewController()
-        navigationController.pushViewController(vc, animated: true)
+extension FavoritesCoordinator: FavoritesVCDelegate {
+    func done( ) {
+//         let vc = DetailViewController()
+//        navigationController.pushViewController(vc, animated: true)
     }
 }
 

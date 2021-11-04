@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import WebKit
 
 class DetailViewController : ViewController {
 //    var model : Restaurant?
@@ -15,6 +16,10 @@ class DetailViewController : ViewController {
 //    override func viewDidAppear(_ animated: Bool) {
 //        map.frame.size.height = 23
 //    }
+    override func viewDidLoad() {
+        view.backgroundColor = .systemRed
+    }
+    
 }
 
 //

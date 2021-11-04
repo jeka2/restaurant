@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		475F34092733224700F17530 /* BottleRocketCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F34082733224700F17530 /* BottleRocketCoordinator.swift */; };
+		475F340F27340F0100F17530 /* DiskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F340E27340F0100F17530 /* DiskStorage.swift */; };
+		475F3412273421A000F17530 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F3410273421A000F17530 /* FavoritesViewController.swift */; };
+		475F3413273421A000F17530 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 475F3411273421A000F17530 /* FavoritesViewController.xib */; };
+		475F34152734229100F17530 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F34142734229100F17530 /* FavoritesCoordinator.swift */; };
 		47A6CB3127319FDF00692C57 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A6CB3027319FDF00692C57 /* CollectionViewCell.swift */; };
 		47A6CB3327319FEA00692C57 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47A6CB3227319FEA00692C57 /* CollectionViewCell.xib */; };
 		47A6CB352731A12A00692C57 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A6CB342731A12A00692C57 /* Coordinator.swift */; };
@@ -46,6 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		475F34082733224700F17530 /* BottleRocketCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleRocketCoordinator.swift; sourceTree = "<group>"; };
+		475F340E27340F0100F17530 /* DiskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskStorage.swift; sourceTree = "<group>"; };
+		475F3410273421A000F17530 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		475F3411273421A000F17530 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		475F34142734229100F17530 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
 		47A6CB3027319FDF00692C57 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		47A6CB3227319FEA00692C57 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		47A6CB342731A12A00692C57 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -100,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				47A6CB342731A12A00692C57 /* Coordinator.swift */,
+				475F34142734229100F17530 /* FavoritesCoordinator.swift */,
+				475F34082733224700F17530 /* BottleRocketCoordinator.swift */,
 				A1054C4A273187E9005FB57A /* Restaurant Project */,
 				A1054C61273187EA005FB57A /* Restaurant ProjectTests */,
 				A1054C6B273187EA005FB57A /* Restaurant ProjectUITests */,
@@ -124,6 +136,8 @@
 				A1054C4D273187E9005FB57A /* SceneDelegate.swift */,
 				A1054C4F273187E9005FB57A /* ViewController.swift */,
 				A1054C51273187E9005FB57A /* Main.storyboard */,
+				475F3410273421A000F17530 /* FavoritesViewController.swift */,
+				475F3411273421A000F17530 /* FavoritesViewController.xib */,
 				47A6CB3227319FEA00692C57 /* CollectionViewCell.xib */,
 				47A6CB3027319FDF00692C57 /* CollectionViewCell.swift */,
 				A1054C54273187EA005FB57A /* Assets.xcassets */,
@@ -136,6 +150,7 @@
 				A160438B2731B772006CAF24 /* ImageCache.swift */,
 				A160438D2731D76A006CAF24 /* DetailViewController.swift */,
 				A160438F2731D91A006CAF24 /* DetailView.storyboard */,
+				475F340E27340F0100F17530 /* DiskStorage.swift */,
 			);
 			path = "Restaurant Project";
 			sourceTree = "<group>";
@@ -265,6 +280,7 @@
 				A1054C55273187EA005FB57A /* Assets.xcassets in Resources */,
 				47A6CB3327319FEA00692C57 /* CollectionViewCell.xib in Resources */,
 				A16043902731D91A006CAF24 /* DetailView.storyboard in Resources */,
+				475F3413273421A000F17530 /* FavoritesViewController.xib in Resources */,
 				A1054C53273187E9005FB57A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,8 +308,12 @@
 			files = (
 				A160438E2731D76A006CAF24 /* DetailViewController.swift in Sources */,
 				A1054C50273187E9005FB57A /* ViewController.swift in Sources */,
+				475F3412273421A000F17530 /* FavoritesViewController.swift in Sources */,
+				475F34092733224700F17530 /* BottleRocketCoordinator.swift in Sources */,
+				475F34152734229100F17530 /* FavoritesCoordinator.swift in Sources */,
 				A1054C84273192B3005FB57A /* BottleRocketController.swift in Sources */,
 				47A6CB3127319FDF00692C57 /* CollectionViewCell.swift in Sources */,
+				475F340F27340F0100F17530 /* DiskStorage.swift in Sources */,
 				A160438C2731B772006CAF24 /* ImageCache.swift in Sources */,
 				A1054C8627319378005FB57A /* RestaurantViewModel.swift in Sources */,
 				A1054C4C273187E9005FB57A /* AppDelegate.swift in Sources */,

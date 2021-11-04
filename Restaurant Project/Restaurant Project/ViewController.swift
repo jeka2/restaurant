@@ -23,13 +23,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupNavBar()
-      
-    }
+      }
     
     func setupNavBar(){
         let rightBarButton = UIBarButtonItem(image: UIImage(named: "icon_map"), style: .done, target: self, action: nil)
         rightBarButton.tintColor = .white
-        
         self.navigationItem.rightBarButtonItem = rightBarButton
         title = "Lunch Tyme"
         view.backgroundColor = UIColor(red: 67/255, green: 232/255, blue: 149/255, alpha: 1.0)

@@ -7,8 +7,8 @@
 
 
 import UIKit
-//coordinator for Main ViewController
-class Coordinator{
+
+class MainCoordinator{
     let navigationController: UINavigationController
     
     init(_ rootController: UIViewController) {
@@ -17,13 +17,18 @@ class Coordinator{
         self.navigationController.navigationBar.titleTextAttributes =
         [NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1.0),
          NSAttributedString.Key.font: UIFont(name:"Avenir Next Demi Bold",size:17) ?? 0]
+        
+      
+        
     }
 }
 
-extension Coordinator: ViewControllerDelegate {
+extension MainCoordinator: ViewControllerDelegate {
     func done( selecteRestaurant:Restaurant) {
-         let vc = DetailViewController()
-        navigationController.pushViewController(vc, animated: true)
+//       // let vc = BottleRocketController()
+//        
+//        navigationController.pushViewController(vc, animated: true)
+//        
     }
 }
 
