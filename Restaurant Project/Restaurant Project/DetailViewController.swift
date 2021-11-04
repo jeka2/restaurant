@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     
     var locationManager = CLLocationManager()
     
+    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var titleSection: UIView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var titleBackgroundView: UIView!
@@ -27,6 +28,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var telephoneLabel: UILabel!
     @IBOutlet weak var twitterHandleLabel: UILabel!
     
+    @IBAction func favoriteTapped(_ sender: Any) {
+        do {
+            try DiskStorage.save(withKey: "favorite-restaurants", value: self.model)
+        } catch {
+            print(error)
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         titleLabel.layer.zPosition = 1
         categoryLabel.layer.zPosition = 1
@@ -34,6 +43,7 @@ class DetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        favoriteButton = UIButton.createStandardButton()
         configureModel()
     }
     override func awakeFromNib() {
@@ -205,3 +215,13 @@ extension DetailViewController : CLLocationManagerDelegate {
     }
 }
 
+
+extension UIButton {
+    static func createStandardButton() -> UIButton {
+        let button = UIButton(type: UIButton.ButtonType.infoLight)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.setTitleColor(UIColor.gray, for: .highlighted)
+        return button
+    }
+}

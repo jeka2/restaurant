@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct RestaurantResponse : Decodable {
-    let restaurants : [Restaurant]
+struct RestaurantResponse : Codable {
+    var restaurants : [Restaurant]
 }
 
-struct Restaurant : Decodable {
+struct Restaurant : Codable {
     let name : String
     let backgroundImageURL : String
     let category : String
@@ -20,12 +20,12 @@ struct Restaurant : Decodable {
     let location : LocationInfo?
 }
 
-struct ContactInfo : Decodable {
+struct ContactInfo : Codable {
     let formattedPhone : String?
     let twitter : String?
 }
 
-struct LocationInfo : Decodable {
+struct LocationInfo : Codable {
     let lat : Double?
     let lng : Double?
     let address : String?

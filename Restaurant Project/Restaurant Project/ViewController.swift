@@ -9,6 +9,7 @@ import UIKit
 
 protocol ViewControllerDelegate {
     func done(selecteRestaurant:Restaurant)
+    func pushFavorites()
 }
 class ViewController: UIViewController {    
     @IBOutlet weak var tabBar: UITabBar!
