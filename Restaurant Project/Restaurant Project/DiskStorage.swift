@@ -1,13 +1,5 @@
-//
-//  DiskStorage.swift
-//  Restaurant Project
-//
-//  Created by Folarin Williamson on 8/25/21.
-//
-
 import Foundation
 
-// https://developer.apple.com/documentation/foundation/filemanager
 enum DiskStorageError: Error {
     case missingFile
     case noData
@@ -17,32 +9,46 @@ enum DiskStorageError: Error {
 
 struct DiskStorage {
     
-    static func save(withKey key: String, value: String, using fileManager: FileManager = .default) throws {
-        // use the cachesDirectory
+    static func save(withKey key: String, value: Restaurant?, using fileManager: FileManager = .default) throws {
         let cacheDirectory = FileManager.SearchPathDirectory.cachesDirectory
         
-        // all urls in cacheDirectory
         let folderURLs = fileManager.urls(for: cacheDirectory, in: .userDomainMask)
         
-        // check out the console below
         print("\(folderURLs)")
         
-        // let's create our own file that will hold our cached data
         guard let fileURL = folderURLs.first?.appendingPathComponent(key + ".cache") else {
             throw DiskStorageError.missingFile
         }
-    
-        // check out console below
+   //
+        guard let d = fileManager.contents(atPath: fileURL.path) else {
+            do {
+                
+                let data : Data = try JSONEncoder().encode([value])
+                
+                try data.write(to: fileURL)
+                
+            } catch {
+                
+                throw error
+            }
+            
+            return
+        }
+        
+        var restaurantObjects = try JSONDecoder().decode([Restaurant].self, from: d)
+        
+        restaurantObjects.append(value!)
+        
+
+    //
         print("FILE URL: \(fileURL)")
         
-        // remember to convert your object to a Data (bits and bytes) type
-        let data: Data = try JSONEncoder().encode(value)
+        let data: Data = try JSONEncoder().encode(restaurantObjects)
         
-        // write it to your new file you created above
         try data.write(to: fileURL)
     }
     
-    static func read(fromKey key: String, using fileManager: FileManager = .default) throws -> String {
+    static func read(fromKey key: String = "favorite-restaurants", using fileManager: FileManager = .default) throws -> [Restaurant]? {
         
         let cacheDirectory = FileManager.SearchPathDirectory.cachesDirectory
         let folderURLs = fileManager.urls(for: cacheDirectory, in: .userDomainMask)
@@ -59,7 +65,12 @@ struct DiskStorage {
             throw DiskStorageError.noData
         }
         
-        let object = try JSONDecoder().decode(String.self, from: data)
+        let object = try JSONDecoder().decode([Restaurant].self, from: data)
+        
         return object
+    }
+    
+    static func delete(fromKey key: String, using fileManager: FileManager = .default) {
+        
     }
 }

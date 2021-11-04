@@ -12,22 +12,50 @@ import UIKit
 //}
 
 class FavoritesViewController: UIViewController {
+    
+    var models : [Restaurant]? {
+        didSet {
+            
+        }
+    }
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       // var delegate:FavaritesVCDelegate?
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        do {
+            let restaurants = try DiskStorage.read()
+            if let restaurants = restaurants {
+                self.models = restaurants
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
     }
 
+}
 
-    /*
-    // MARK: - Navigation
+extension FavoritesViewController : UICollectionViewDelegateFlowLayout {
+    
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension FavoritesViewController : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        UICollectionViewCell()
+    }
+    
+    
 }
