@@ -17,9 +17,20 @@ class RestaurantViewModel {
             }
         }
     }
-    func fetchRestaurantInfo() {
-        Network.shared.fetchRestaurantInfo(url: "https://s3.amazonaws.com/br-codingexams/restaurants.json") { restaurantInfo in
-            self.restaurantInfo = restaurantInfo
+    func fetchRestaurantInfo(fromCache : Bool = false) {
+        if fromCache {
+            do {
+                let restaurants = try DiskStorage.read()
+                if let restaurants = restaurants {
+                    convertIndividualModelsToResponse(restaurants)
+                }
+            } catch {
+                print(error)
+            }
+        } else {
+            Network.shared.fetchRestaurantInfo(url: "https://s3.amazonaws.com/br-codingexams/restaurants.json") { restaurantInfo in
+                self.restaurantInfo = restaurantInfo
+            }
         }
     }
     
@@ -36,8 +47,12 @@ class RestaurantViewModel {
         return nil
     }
     
-    init() {
-        fetchRestaurantInfo()
+    private func convertIndividualModelsToResponse(_ models: [Restaurant]) {
+        self.restaurantInfo = RestaurantResponse(restaurants: models)
+    }
+    
+    init(fromCache : Bool = false) {
+        fetchRestaurantInfo(fromCache: fromCache)
     }
     
     

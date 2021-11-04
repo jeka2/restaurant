@@ -8,7 +8,7 @@
 import Foundation
 
 struct RestaurantResponse : Codable {
-    let restaurants : [Restaurant]
+    var restaurants : [Restaurant]
 }
 
 struct Restaurant : Codable {

@@ -10,7 +10,6 @@
 		475F34092733224700F17530 /* BottleRocketCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F34082733224700F17530 /* BottleRocketCoordinator.swift */; };
 		475F340F27340F0100F17530 /* DiskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F340E27340F0100F17530 /* DiskStorage.swift */; };
 		475F3412273421A000F17530 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F3410273421A000F17530 /* FavoritesViewController.swift */; };
-		475F3413273421A000F17530 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 475F3411273421A000F17530 /* FavoritesViewController.xib */; };
 		475F34152734229100F17530 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475F34142734229100F17530 /* FavoritesCoordinator.swift */; };
 		47A6CB3127319FDF00692C57 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A6CB3027319FDF00692C57 /* CollectionViewCell.swift */; };
 		47A6CB3327319FEA00692C57 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47A6CB3227319FEA00692C57 /* CollectionViewCell.xib */; };
@@ -31,6 +30,7 @@
 		A160438C2731B772006CAF24 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160438B2731B772006CAF24 /* ImageCache.swift */; };
 		A160438E2731D76A006CAF24 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A160438D2731D76A006CAF24 /* DetailViewController.swift */; };
 		A16043902731D91A006CAF24 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A160438F2731D91A006CAF24 /* DetailView.storyboard */; };
+		A1ECF9F3273472E600CE99CA /* FavoritesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1ECF9F2273472E600CE99CA /* FavoritesView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,6 @@
 		475F34082733224700F17530 /* BottleRocketCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleRocketCoordinator.swift; sourceTree = "<group>"; };
 		475F340E27340F0100F17530 /* DiskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskStorage.swift; sourceTree = "<group>"; };
 		475F3410273421A000F17530 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		475F3411273421A000F17530 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		475F34142734229100F17530 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
 		47A6CB3027319FDF00692C57 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		47A6CB3227319FEA00692C57 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -79,6 +78,7 @@
 		A160438B2731B772006CAF24 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		A160438D2731D76A006CAF24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A160438F2731D91A006CAF24 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
+		A1ECF9F2273472E600CE99CA /* FavoritesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,6 @@
 				A1054C4F273187E9005FB57A /* ViewController.swift */,
 				A1054C51273187E9005FB57A /* Main.storyboard */,
 				475F3410273421A000F17530 /* FavoritesViewController.swift */,
-				475F3411273421A000F17530 /* FavoritesViewController.xib */,
 				47A6CB3227319FEA00692C57 /* CollectionViewCell.xib */,
 				47A6CB3027319FDF00692C57 /* CollectionViewCell.swift */,
 				A1054C54273187EA005FB57A /* Assets.xcassets */,
@@ -151,6 +150,7 @@
 				A160438D2731D76A006CAF24 /* DetailViewController.swift */,
 				A160438F2731D91A006CAF24 /* DetailView.storyboard */,
 				475F340E27340F0100F17530 /* DiskStorage.swift */,
+				A1ECF9F2273472E600CE99CA /* FavoritesView.storyboard */,
 			);
 			path = "Restaurant Project";
 			sourceTree = "<group>";
@@ -277,10 +277,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1054C58273187EA005FB57A /* LaunchScreen.storyboard in Resources */,
+				A1ECF9F3273472E600CE99CA /* FavoritesView.storyboard in Resources */,
 				A1054C55273187EA005FB57A /* Assets.xcassets in Resources */,
 				47A6CB3327319FEA00692C57 /* CollectionViewCell.xib in Resources */,
 				A16043902731D91A006CAF24 /* DetailView.storyboard in Resources */,
-				475F3413273421A000F17530 /* FavoritesViewController.xib in Resources */,
 				A1054C53273187E9005FB57A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

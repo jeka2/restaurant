@@ -17,11 +17,18 @@ class Coordinator{
 }
 
 extension Coordinator: ViewControllerDelegate {
-    func done( selecteRestaurant:Restaurant) {
+    func pushFavorites() {
+        let vc = UIStoryboard(name: "FavoritesView", bundle: nil).instantiateViewController(withIdentifier: "FavoritesView") as! FavoritesViewController
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func done(selecteRestaurant:Restaurant) {
         
        let vc = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
         vc.setModel(model: selecteRestaurant)
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    
 }
 
