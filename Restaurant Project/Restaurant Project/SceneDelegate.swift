@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let internetImage = UIImage (named: "tab_internets")
         bottleRocketCoordinator.bottleRockeNC.tabBarItem = UITabBarItem(title: "Internet", image: internetImage, tag: 1)
        
-        let vc = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+        
         let favoritesController = UIStoryboard(name: "FavoritesView", bundle: nil).instantiateViewController(withIdentifier: "FavoritesView") as!FavoritesViewController
        let favoritesCoordinator = FavoritesCoordinator(favoritesController)
        

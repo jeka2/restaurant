@@ -11,21 +11,25 @@ protocol ViewControllerDelegate {
     func done(selecteRestaurant:Restaurant)
     func pushFavorites()
 }
-class ViewController: UIViewController {    
+class ViewController: UIViewController {
+    
+    
     @IBOutlet weak var tabBar: UITabBar!
     var delegate:ViewControllerDelegate?
     var viewModel = RestaurantViewModel()
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
+    var screenSize = CGRect()
+    var screenWidth = CGFloat()
+    var isLandscape:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupNavBar()
+        
       }
     
     func setupNavBar(){
-        
-
         self.navigationController?.navigationBar.tintColor = .white
           //  .navigationBarTitle("Todo Lists", displayMode: .inline)
         self.navigationController?.navigationBar.titleTextAttributes =
@@ -42,25 +46,40 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         setupVM()
     }
-    
-//    func checkIfIpad()
-//    {
-//        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
-//        {
-//            print("IPAD")
-//            return YES; /* Device is iPad */
-//        }
-//        else
-//        {
-//            print("NOT IPAD")
-//        }
-//
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        collectionView.collectionViewLayout.invalidateLayout()
 //    }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        screenSize = UIScreen.main.bounds
+        screenWidth = screenSize.width
+        
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape Width:\(screenWidth)")
+                isLandscape = true
+            }
+        if(UIDevice.current.orientation.isPortrait)
+        {
+                print("Portrait Width:\(screenWidth)")
+                isLandscape = false
+        }
+        
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        
+    }
 }
 extension ViewController:UICollectionViewDataSource
 {
     
     func setupViews(){
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+                layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+                layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
+                layout.minimumInteritemSpacing = 0
+                layout.minimumLineSpacing = 0
+                collectionView!.collectionViewLayout = layout
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -91,17 +110,32 @@ extension ViewController: UICollectionViewDelegate
 extension ViewController: UICollectionViewDelegateFlowLayout
 {
     
-  
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width:(collectionView.bounds.size.width), height:180)
+        
+        
+           // return CGSize(width:(collectionView.bounds.size.width), height:180)
+        
+        let width = view.frame.size.width
+        // in case you you want the cell to be 40% of your controllers view
+        if (width > 900 && isLandscape == true)
+        {
+            print("width/2 = \(width/2)")
+            print("Collectionview.bounds.width: \(collectionView.bounds.size.width)")
+            print("width: \(width)")
+            return CGSize(width:(width/2), height:180)
+        }
+      print(width)
+        print("Collectionview.bounds.width: \(collectionView.bounds.size.width)")
+        print("width: \(width)")
+        return CGSize(width:(width), height:180)
+     
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
+        return 0
     }
 }
 
