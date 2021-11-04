@@ -30,8 +30,10 @@ class DetailViewController: UIViewController {
     
     @IBAction func favoriteTapped(_ sender: Any) {
         do {
+            
             try DiskStorage.save(withKey: "favorite-restaurants", value: self.model)
         } catch {
+            
             print(error)
         }
     }

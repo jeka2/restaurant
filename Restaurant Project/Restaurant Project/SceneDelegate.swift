@@ -28,10 +28,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         bottleRocketController.delegate = bottleRocketCoordinator as? BottleRocketVCDelegate
         let internetImage = UIImage (named: "tab_internets")
         bottleRocketCoordinator.bottleRockeNC.tabBarItem = UITabBarItem(title: "Internet", image: internetImage, tag: 1)
-        let favoritesController = FavoritesViewController()
-        let favoritesCoordinator = FavoritesCoordinator(favoritesController)
-        
-        
+       
+        let vc = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+        let favoritesController = UIStoryboard(name: "FavoritesView", bundle: nil).instantiateViewController(withIdentifier: "FavoritesView") as!FavoritesViewController
+       let favoritesCoordinator = FavoritesCoordinator(favoritesController)
+       
         favoritesCoordinator.favoritesNC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart.fill"), tag: 2)
         let tabBar = UITabBarController()
         let tabBarBackgroundImage = UIImage(named: "cellGradientBackground")
