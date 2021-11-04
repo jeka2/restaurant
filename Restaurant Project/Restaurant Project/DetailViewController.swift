@@ -30,6 +30,11 @@ class DetailViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         titleLabel.layer.zPosition = 1
         categoryLabel.layer.zPosition = 1
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configureModel()
     }
     
     override func viewDidLoad() {
@@ -47,6 +52,37 @@ class DetailViewController: UIViewController {
     
     func setModel(model: Restaurant) {
         self.model = model
+    }
+    
+    private func configureModel() {
+        var cityStateZip = ""
+        if let category = model?.category {
+            
+            categoryLabel.text = category
+        }
+        if let title = model?.name {
+            titleLabel.text = title
+        }
+        if let address = model?.location?.address {
+            streetLabel.text = address
+        }
+        if let city = model?.location?.city {
+            cityStateZip += city + ", "
+        }
+        if let state = model?.location?.state {
+            cityStateZip += state + ", "
+        }
+        if let zip = model?.location?.postalCode {
+            cityStateZip += zip
+        }
+        cityStateZipLabel.text = cityStateZip
+        
+        if let telephone = model?.contact?.formattedPhone {
+            telephoneLabel.text = telephone
+        }
+        if let twitterLabel = model?.contact?.twitter {
+            twitterHandleLabel.text =  "@" + twitterLabel
+        }
     }
     
     private var addressForSearch: String? {
