@@ -30,10 +30,8 @@ class DetailViewController: UIViewController {
     
     @IBAction func favoriteTapped(_ sender: Any) {
         do {
-            
             try DiskStorage.save(withKey: "favorite-restaurants", value: self.model)
         } catch {
-            
             print(error)
         }
     }
@@ -85,7 +83,6 @@ class DetailViewController: UIViewController {
     private func configureModel() {
         var cityStateZip = ""
         if let category = model?.category {
-            
             categoryLabel.text = category
         }
         if let title = model?.name {

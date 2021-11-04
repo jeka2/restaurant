@@ -11,8 +11,8 @@ import UIKit
 class RestaurantViewModel {
     var restaurantInfo: RestaurantResponse? {
         didSet {
+            
             DispatchQueue.main.async {
-                
                 self.updateUI?()
             }
         }
@@ -20,6 +20,7 @@ class RestaurantViewModel {
     func fetchRestaurantInfo(fromCache : Bool = false) {
         if fromCache {
             do {
+                
                 let restaurants = try DiskStorage.read()
                 if let restaurants = restaurants {
                     convertIndividualModelsToResponse(restaurants)
@@ -48,6 +49,7 @@ class RestaurantViewModel {
     }
     
     private func convertIndividualModelsToResponse(_ models: [Restaurant]) {
+        
         self.restaurantInfo = RestaurantResponse(restaurants: models)
     }
     

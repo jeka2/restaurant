@@ -14,14 +14,23 @@ import UIKit
 class FavoritesViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    let viewModel = RestaurantViewModel(fromCache: true)
-   // var delegate: FavoritesVCDelegate?
+    var viewModel : RestaurantViewModel?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupCollectionView()
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel = RestaurantViewModel(fromCache: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.collectionView.reloadData()
+    }
+    
     
     private func setupCollectionView() {
     
@@ -44,12 +53,16 @@ extension FavoritesViewController : UICollectionViewDelegateFlowLayout {
 
 extension FavoritesViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.numberOfRows
+        if let viewModel = viewModel {
+            
+            return viewModel.numberOfRows
+            
+        } else { return 0 }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-        cell.configure(model: viewModel.getRecordAtRow(row: indexPath.row))
+        if let viewModel = viewModel { cell.configure(model: viewModel.getRecordAtRow(row: indexPath.row)) }
         return cell
     }
     
