@@ -29,8 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let internetImage = UIImage (named: "tab_internets")
         bottleRocketCoordinator.bottleRockeNC.tabBarItem = UITabBarItem(title: "Internet", image: internetImage, tag: 1)
         
-        let favoritesController = FavoritesViewController()
-        let favoritesCoordinator = FavoritesCoordinator(favoritesController)
+//        let favoritesController = FavoritesViewController()
+//        let favoritesCoordinator = FavoritesCoordinator(favoritesController)
      
         let tabBar = UITabBarController()
         let tabBarBackgroundImage = UIImage(named: "cellGradientBackground")

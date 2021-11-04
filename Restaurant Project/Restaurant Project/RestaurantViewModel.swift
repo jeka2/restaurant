@@ -19,6 +19,7 @@ class RestaurantViewModel {
     }
     func fetchRestaurantInfo() {
         Network.shared.fetchRestaurantInfo(url: "https://s3.amazonaws.com/br-codingexams/restaurants.json") { restaurantInfo in
+            
             self.restaurantInfo = restaurantInfo
         }
     }

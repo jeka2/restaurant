@@ -48,6 +48,7 @@ extension ViewController:UICollectionViewDataSource
         viewModel.updateUI =  { self.collectionView.reloadData() }
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return viewModel.numberOfRows
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
