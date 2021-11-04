@@ -11,9 +11,7 @@ protocol ViewControllerDelegate {
     func done(selecteRestaurant:Restaurant)
     func pushFavorites()
 }
-class ViewController: UIViewController {
-
-    
+class ViewController: UIViewController {    
     @IBOutlet weak var tabBar: UITabBar!
     var delegate:ViewControllerDelegate?
     var viewModel = RestaurantViewModel()
@@ -44,6 +42,20 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         setupVM()
     }
+    
+//    func checkIfIpad()
+//    {
+//        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+//        {
+//            print("IPAD")
+//            return YES; /* Device is iPad */
+//        }
+//        else
+//        {
+//            print("NOT IPAD")
+//        }
+//
+//    }
 }
 extension ViewController:UICollectionViewDataSource
 {
@@ -78,6 +90,9 @@ extension ViewController: UICollectionViewDelegate
 }
 extension ViewController: UICollectionViewDelegateFlowLayout
 {
+    
+  
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width:(collectionView.bounds.size.width), height:180)
     }
@@ -85,5 +100,8 @@ extension ViewController: UICollectionViewDelegateFlowLayout
         return 0
     }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
 }
 

@@ -28,13 +28,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         bottleRocketController.delegate = bottleRocketCoordinator as? BottleRocketVCDelegate
         let internetImage = UIImage (named: "tab_internets")
         bottleRocketCoordinator.bottleRockeNC.tabBarItem = UITabBarItem(title: "Internet", image: internetImage, tag: 1)
-        
         let favoritesController = FavoritesViewController()
         let favoritesCoordinator = FavoritesCoordinator(favoritesController)
-     
+        
+        
+        favoritesCoordinator.favoritesNC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart.fill"), tag: 2)
         let tabBar = UITabBarController()
         let tabBarBackgroundImage = UIImage(named: "cellGradientBackground")
-        tabBar.viewControllers = [coordinator.navigationController, bottleRocketCoordinator.bottleRockeNC]
+        tabBar.viewControllers = [coordinator.navigationController, bottleRocketCoordinator.bottleRockeNC, favoritesCoordinator.favoritesNC]
         tabBar.tabBar.backgroundImage = tabBarBackgroundImage
         tabBar.tabBar.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0
         )
@@ -45,12 +46,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
     }
 }
-//func createBottleRocketNC()->UINavigationController{
-//    let BottleRockeVC = BottleRocketController()
-//    BottleRockeVC.title = "Internet"
-//    let internetImage = UIImage (named: "tab_internets")
-//    let tabBarItem = UITabBarItem(title: "Internet", image: internetImage, tag: 1)
-//    BottleRockeVC.tabBarItem = tabBarItem
-//    return UINavigationController(rootViewController: BottleRockeVC)
-//}
+
 
