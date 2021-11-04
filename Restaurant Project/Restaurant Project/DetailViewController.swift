@@ -74,7 +74,6 @@ class DetailViewController: UIViewController {
         
     
         title = "Lunch Tyme"
-        self.navigationController?.navigationItem.backButtonTitle = ""
         view.backgroundColor = UIColor(red: 67/255, green: 232/255, blue: 149/255, alpha: 1.0)
     }
     func setModel(model: Restaurant) {
