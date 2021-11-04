@@ -45,11 +45,22 @@ class DetailViewController: UIViewController {
             mapView.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
+            setupNavBar()
         }
         
         //getAddress()
     }
-    
+    func setupNavBar(){
+        self.navigationController?.navigationBar.titleTextAttributes =
+        [NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1.0),
+         NSAttributedString.Key.font: UIFont(name:"Avenir Next Demi Bold",size:17) ?? 0]
+        
+        let rightBarButton = UIBarButtonItem(image: UIImage(named: "icon_map"), style: .done, target: self, action: nil)
+        rightBarButton.tintColor = .white
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        title = "Lunch Tyme"
+        view.backgroundColor = UIColor(red: 67/255, green: 232/255, blue: 149/255, alpha: 1.0)
+    }
     func setModel(model: Restaurant) {
         self.model = model
     }
