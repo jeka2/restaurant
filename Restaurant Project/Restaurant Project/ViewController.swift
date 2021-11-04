@@ -6,13 +6,12 @@
 //
 
 import UIKit
-import MapKit
-import CoreLocation
 
 protocol ViewControllerDelegate {
     func done(selecteRestaurant:Restaurant)
 }
 class ViewController: UIViewController {
+
     
     @IBOutlet weak var tabBar: UITabBar!
     var delegate:ViewControllerDelegate?
@@ -75,5 +74,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+
 }
 
