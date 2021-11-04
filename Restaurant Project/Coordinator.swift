@@ -10,7 +10,6 @@ import UIKit
 //coordinator for Main ViewController
 class Coordinator{
     let navigationController: UINavigationController
-    
     init(_ rootController: UIViewController) {
         self.navigationController = UINavigationController(rootViewController: rootController)
     }
@@ -18,8 +17,7 @@ class Coordinator{
 
 extension Coordinator: ViewControllerDelegate {
     func done( selecteRestaurant:Restaurant) {
-        
-       let vc = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
+        let vc = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
         vc.setModel(model: selecteRestaurant)
         navigationController.pushViewController(vc, animated: true)
     }
