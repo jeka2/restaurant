@@ -12,18 +12,21 @@ import CoreLocation
 class ViewController: UIViewController {
 
     var model : Restaurant?
-    var okToSearch: Bool? {
-        didSet {
-            self.getAddress()
-        }
-    }
+    
     var locationManager = CLLocationManager()
     
     @IBOutlet weak var titleSection: UIView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var titleBackgroundView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    
+    @IBOutlet weak var streetLabel: UILabel!
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        titleLabel.layer.zPosition = 1
+        categoryLabel.layer.zPosition = 1
+        streetLabel.layer.zPosition = 4
     }
     
     override func viewDidLoad() {
@@ -34,7 +37,12 @@ class ViewController: UIViewController {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         }
+        
         //getAddress()
+    }
+    
+    func setModel(model: Restaurant) {
+        self.model = model
     }
     
 
@@ -43,7 +51,7 @@ class ViewController: UIViewController {
 
 
 extension ViewController : MKMapViewDelegate {
-    func getAddress() {
+    private func getAddress() {
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString("222 Northeast drive, fort wayne") { (placemarks, error) in
             
@@ -51,7 +59,16 @@ extension ViewController : MKMapViewDelegate {
                 print("no location found")
                 return
             }
-            self.mapThis(destinationCord: location.coordinate)
+            
+            let latitude = location.coordinate.latitude
+            let longitude = location.coordinate.longitude
+            
+            let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            
+            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            
+            self.mapView.setRegion(region, animated: true)
+            //self.mapThis(destinationCord: location.coordinate)
         }
     }
     
@@ -59,35 +76,35 @@ extension ViewController : MKMapViewDelegate {
     
     
     
-        func mapThis(destinationCord: CLLocationCoordinate2D) {
-            
+        private func mapThis(destinationCord: CLLocationCoordinate2D) {
+
             let sourceCoordinate = locationManager.location?.coordinate // current location
-    
+
             let sourcePlaceMark = MKPlacemark(coordinate: sourceCoordinate!)
             let destinationPlaceMark = MKPlacemark(coordinate: destinationCord)
-    
+
             let sourceItem = MKMapItem(placemark: sourcePlaceMark)
             let destinationItem = MKMapItem(placemark: destinationPlaceMark)
-    
+
             let destinationRequest = MKDirections.Request()
             destinationRequest.source = sourceItem
             destinationRequest.destination = destinationItem
-    
+
             destinationRequest.transportType = .automobile
             destinationRequest.requestsAlternateRoutes = true
-    
+
             let directions = MKDirections(request: destinationRequest)
-            
+
             directions.calculate { (response, error) in
-                
+
                 guard let response = response else {
-                    
+
                     if let error = error {
                         print("Cannot calculate direction: \(error)")
                     }
                     return
                 }
-                
+
                 let route = response.routes[0]
                 self.mapView.addOverlay(route.polyline)
                 self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
