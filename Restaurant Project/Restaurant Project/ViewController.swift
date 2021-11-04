@@ -26,6 +26,9 @@ class ViewController: UIViewController {
     
     func setupNavBar(){
         
+
+        self.navigationController?.navigationBar.tintColor = .white
+          //  .navigationBarTitle("Todo Lists", displayMode: .inline)
         self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1.0),
          NSAttributedString.Key.font: UIFont(name:"Avenir Next Demi Bold",size:17) ?? 0]
@@ -35,6 +38,7 @@ class ViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightBarButton
         title = "Lunch Tyme"
         view.backgroundColor = UIColor(red: 67/255, green: 232/255, blue: 149/255, alpha: 1.0)
+        self.navigationItem.backButtonTitle = ""
     }
     override func viewDidAppear(_ animated: Bool) {
         setupVM()

@@ -36,7 +36,9 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         configureModel()
     }
-    
+    override func awakeFromNib() {
+        self.navigationItem.backBarButtonItem?.title = ""
+    }
     override func viewDidLoad() {
         locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -50,15 +52,19 @@ class DetailViewController: UIViewController {
         
         //getAddress()
     }
+    
     func setupNavBar(){
         self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1.0),
          NSAttributedString.Key.font: UIFont(name:"Avenir Next Demi Bold",size:17) ?? 0]
-        
+          
         let rightBarButton = UIBarButtonItem(image: UIImage(named: "icon_map"), style: .done, target: self, action: nil)
         rightBarButton.tintColor = .white
         self.navigationItem.rightBarButtonItem = rightBarButton
+        
+    
         title = "Lunch Tyme"
+        self.navigationController?.navigationItem.backButtonTitle = ""
         view.backgroundColor = UIColor(red: 67/255, green: 232/255, blue: 149/255, alpha: 1.0)
     }
     func setModel(model: Restaurant) {
