@@ -29,18 +29,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let internetImage = UIImage (named: "tab_internets")
         bottleRocketCoordinator.bottleRockeNC.tabBarItem = UITabBarItem(title: "Internet", image: internetImage, tag: 1)
        
-        
+
         let favoritesController = UIStoryboard(name: "FavoritesView", bundle: nil).instantiateViewController(withIdentifier: "FavoritesView") as!FavoritesViewController
        let favoritesCoordinator = FavoritesCoordinator(favoritesController)
-       
         favoritesCoordinator.favoritesNC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart.fill"), tag: 2)
+        
         let tabBar = UITabBarController()
         let tabBarBackgroundImage = UIImage(named: "cellGradientBackground")
-        tabBar.viewControllers = [coordinator.navigationController, bottleRocketCoordinator.bottleRockeNC, favoritesCoordinator.favoritesNC]
         tabBar.tabBar.backgroundImage = tabBarBackgroundImage
         tabBar.tabBar.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0
         )
         tabBar.tabBar.isTranslucent = false
+        tabBar.viewControllers = [coordinator.navigationController, bottleRocketCoordinator.bottleRockeNC, favoritesCoordinator.favoritesNC]
         window.rootViewController = tabBar
         self.window = window
         window.makeKeyAndVisible()

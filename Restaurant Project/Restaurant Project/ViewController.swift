@@ -19,8 +19,6 @@ class ViewController: UIViewController {
     var viewModel = RestaurantViewModel()
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
-    var screenSize = CGRect()
-    var screenWidth = CGFloat()
     var isLandscape:Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,28 +44,16 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         setupVM()
     }
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        collectionView.collectionViewLayout.invalidateLayout()
-//    }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
-        screenSize = UIScreen.main.bounds
-        screenWidth = screenSize.width
         
         if UIDevice.current.orientation.isLandscape {
-            print("Landscape Width:\(screenWidth)")
                 isLandscape = true
             }
-        if(UIDevice.current.orientation.isPortrait)
-        {
-                print("Portrait Width:\(screenWidth)")
+        if(UIDevice.current.orientation.isPortrait){
                 isLandscape = false
         }
-        
         collectionView.collectionViewLayout.invalidateLayout()
-        
-        
     }
 }
 extension ViewController:UICollectionViewDataSource
@@ -75,8 +61,7 @@ extension ViewController:UICollectionViewDataSource
     
     func setupViews(){
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-                layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
-                layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
+                layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
                 layout.minimumInteritemSpacing = 0
                 layout.minimumLineSpacing = 0
                 collectionView!.collectionViewLayout = layout
@@ -111,12 +96,8 @@ extension ViewController: UICollectionViewDelegateFlowLayout
 {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        
-           // return CGSize(width:(collectionView.bounds.size.width), height:180)
-        
         let width = view.frame.size.width
-        // in case you you want the cell to be 40% of your controllers view
+       
         if (width > 900 && isLandscape == true)
         {
             print("width/2 = \(width/2)")
@@ -124,18 +105,8 @@ extension ViewController: UICollectionViewDelegateFlowLayout
             print("width: \(width)")
             return CGSize(width:(width/2), height:180)
         }
-      print(width)
-        print("Collectionview.bounds.width: \(collectionView.bounds.size.width)")
-        print("width: \(width)")
         return CGSize(width:(width), height:180)
-     
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
+  
 }
 
