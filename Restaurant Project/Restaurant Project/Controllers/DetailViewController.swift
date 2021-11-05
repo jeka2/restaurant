@@ -31,10 +31,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var telephoneLabel: UILabel!
     @IBOutlet weak var twitterHandleLabel: UILabel!
     
+    var favorited = false
+    
     @IBAction func favoriteTapped(_ sender: Any) {
         do {
             try DiskStorage.modify(withKey: "favorite-restaurants", value: self.model)
             updateFavoriteStatusOfCellThatOwnsThis?()
+            toggleHeartFilled(fromButtonPress: true)
         } catch {
             print(error)
         }
@@ -43,15 +46,37 @@ class DetailViewController: UIViewController {
     var updateFavoriteStatusOfCellThatOwnsThis : (() -> ())?
     
     override func viewDidAppear(_ animated: Bool) {
-        favoriteButton.setImage(UIImage(systemName: "heart"), for: [])
         titleLabel.layer.zPosition = 1
         categoryLabel.layer.zPosition = 1
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        favoriteButton.imageView?.image = UIImage(systemName: "heart")
+        do {
+            if let restaurants = try DiskStorage.read() {
+                guard let model = model else { return }
+                for restaurant in restaurants {
+                    if restaurant.backgroundImageURL == model.backgroundImageURL {
+                        favorited = !favorited
+                        updateFavoriteStatusOfCellThatOwnsThis?()
+                    }
+                }
+                
+            }
+        } catch {
+            
+        }
+        toggleHeartFilled()
+        
         configureModel()
     }
+    
+    private func toggleHeartFilled(fromButtonPress: Bool = false) {
+        if fromButtonPress { favorited = !favorited }
+        let heartType : UIImage = favorited == true ? UIImage(systemName: "heart.fill")! : UIImage(systemName: "heart")!
+        
+        favoriteButton.setImage(heartType, for: [])
+    }
+    
     override func awakeFromNib() {
         self.navigationItem.backBarButtonItem?.title = ""
     }

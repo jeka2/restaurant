@@ -128,6 +128,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout
         if let selectedRestaurant = selectedRestaurant {
             let reloadCellCompletion = {
                 self.viewModel.fetchFavoriteStatuses()
+                
                 self.collectionView.reloadItems(at: [indexPath])
             }
             delegate?.done(selecteRestaurant: selectedRestaurant, completion: reloadCellCompletion)
