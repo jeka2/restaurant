@@ -31,6 +31,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        
 
         let favoritesController = UIStoryboard(name: "FavoritesView", bundle: nil).instantiateViewController(withIdentifier: "FavoritesView") as!FavoritesViewController
+        
+        
        let favoritesCoordinator = FavoritesCoordinator(favoritesController)
         favoritesCoordinator.favoritesNC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart.fill"), tag: 2)
         
