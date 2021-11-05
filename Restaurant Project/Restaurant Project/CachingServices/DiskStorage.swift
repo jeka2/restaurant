@@ -14,24 +14,16 @@ struct DiskStorage {
         
         let folderURLs = fileManager.urls(for: cacheDirectory, in: .userDomainMask)
         
-        print("\(folderURLs)")
-        
         guard let fileURL = folderURLs.first?.appendingPathComponent(key + ".cache") else {
             throw DiskStorageError.missingFile
         }
-   //
         guard let d = fileManager.contents(atPath: fileURL.path) else {
             do {
-                
                 let data : Data = try JSONEncoder().encode([value])
-                
                 try data.write(to: fileURL)
-                
             } catch {
-                
                 throw error
             }
-            
             return
         }
         
@@ -42,9 +34,6 @@ struct DiskStorage {
         if filteredArr.count == restaurantObjects.count {
             filteredArr.append(value!)
         }
-
-    //
-        print("FILE URL: \(fileURL)")
         
         let data: Data = try JSONEncoder().encode(filteredArr)
         
@@ -56,13 +45,9 @@ struct DiskStorage {
         let cacheDirectory = FileManager.SearchPathDirectory.cachesDirectory
         let folderURLs = fileManager.urls(for: cacheDirectory, in: .userDomainMask)
         
-        print(folderURLs)
-        
         guard let fileURL = folderURLs.first?.appendingPathComponent(key + ".cache") else {
             throw DiskStorageError.missingFile
         }
-        
-        print(fileURL)
                 
         guard let data = fileManager.contents(atPath: fileURL.path) else {
             throw DiskStorageError.noData

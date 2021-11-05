@@ -56,17 +56,19 @@ class DetailViewController: UIViewController {
         self.navigationItem.backBarButtonItem?.title = ""
     }
     override func viewDidLoad() {
+        setupLocationServices()
+        setupNavBar()
+    }
+    
+    private func setupLocationServices() {
         locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
-
-            mapView.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
-            setupNavBar()
+
+            mapView.delegate = self
         }
-        
-        //getAddress()
     }
     
     func setupNavBar(){
@@ -90,13 +92,13 @@ class DetailViewController: UIViewController {
         var cityStateZip = ""
         if let category = model?.category {
             categoryLabel.text = category
-        }
+        } else { categoryLabel.text = "No Category Set" }
         if let title = model?.name {
             titleLabel.text = title
-        }
+        } else { titleLabel.text = "No Title Set" }
         if let address = model?.location?.address {
             streetLabel.text = address
-        }
+        } else { streetLabel.text = "No Street Provided" }
         if let city = model?.location?.city {
             cityStateZip += city + ", "
         }
@@ -110,10 +112,10 @@ class DetailViewController: UIViewController {
         
         if let telephone = model?.contact?.formattedPhone {
             telephoneLabel.text = telephone
-        }
+        } else { telephoneLabel.text = "No telephone number set" }
         if let twitterLabel = model?.contact?.twitter {
             twitterHandleLabel.text =  "@" + twitterLabel
-        }
+        } else { twitterHandleLabel.text = "No twitter handle set" }
     }
     
     private var addressForSearch: String? {
@@ -220,13 +222,3 @@ extension DetailViewController : CLLocationManagerDelegate {
     }
 }
 
-
-extension UIButton {
-    static func createStandardButton() -> UIButton {
-        let button = UIButton(type: UIButton.ButtonType.infoLight)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.setTitleColor(UIColor.gray, for: .highlighted)
-        return button
-    }
-}

@@ -13,6 +13,7 @@ protocol BottleRocketVCDelegate {
 class BottleRocketController: UIViewController, WKUIDelegate {
     var delegate:BottleRocketVCDelegate?
     var webView: WKWebView!
+    
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
@@ -46,7 +47,7 @@ class BottleRocketController: UIViewController, WKUIDelegate {
         navigationItem.leftBarButtonItems = [backLeftBarButton, refreshLeftBarButton,forwardLeftBarButton]
         
         title = "Lunch Tyme"
-       view.backgroundColor = UIColor(red: 67/255, green: 232/255, blue: 149/255, alpha: 1.0)
+        view.backgroundColor = UIColor(red: 67/255, green: 232/255, blue: 149/255, alpha: 1.0)
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 67/255, green: 232/255, blue: 149/255, alpha: 1.0)
     }
     @objc func goBack() {

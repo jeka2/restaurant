@@ -80,7 +80,7 @@ class RestaurantViewModel {
             
             
         } catch {
-            
+            print(error)
         }
     }
     

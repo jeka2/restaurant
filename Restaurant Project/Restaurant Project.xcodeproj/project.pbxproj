@@ -109,9 +109,6 @@
 		A1054C3F273187E8005FB57A = {
 			isa = PBXGroup;
 			children = (
-				47A6CB342731A12A00692C57 /* Coordinator.swift */,
-				475F34142734229100F17530 /* FavoritesCoordinator.swift */,
-				475F34082733224700F17530 /* BottleRocketCoordinator.swift */,
 				A1054C4A273187E9005FB57A /* Restaurant Project */,
 				A1054C61273187EA005FB57A /* Restaurant ProjectTests */,
 				A1054C6B273187EA005FB57A /* Restaurant ProjectUITests */,
@@ -132,25 +129,15 @@
 		A1054C4A273187E9005FB57A /* Restaurant Project */ = {
 			isa = PBXGroup;
 			children = (
-				A1054C4B273187E9005FB57A /* AppDelegate.swift */,
-				A1054C4D273187E9005FB57A /* SceneDelegate.swift */,
-				A1054C4F273187E9005FB57A /* ViewController.swift */,
-				A1054C51273187E9005FB57A /* Main.storyboard */,
-				475F3410273421A000F17530 /* FavoritesViewController.swift */,
-				47A6CB3227319FEA00692C57 /* CollectionViewCell.xib */,
-				47A6CB3027319FDF00692C57 /* CollectionViewCell.swift */,
-				A1054C54273187EA005FB57A /* Assets.xcassets */,
-				A1054C56273187EA005FB57A /* LaunchScreen.storyboard */,
+				A1ECF9FB2734E99400CE99CA /* NetworkServices */,
+				A1ECF9FA2734E98200CE99CA /* CachingServices */,
+				A1ECF9F92734E96D00CE99CA /* System FIles */,
+				A1ECF9F82734E95D00CE99CA /* Models */,
+				A1ECF9F72734E95500CE99CA /* ViewModels */,
+				A1ECF9F62734E93F00CE99CA /* Views */,
+				A1ECF9F52734E90D00CE99CA /* Controllers */,
+				A1ECF9F42734E8D500CE99CA /* Coordinators */,
 				A1054C59273187EA005FB57A /* Info.plist */,
-				A1054C83273192B3005FB57A /* BottleRocketController.swift */,
-				A1054C8527319378005FB57A /* RestaurantViewModel.swift */,
-				A1054C8727319384005FB57A /* RestaurantModel.swift */,
-				A1054C8927319678005FB57A /* Network.swift */,
-				A160438B2731B772006CAF24 /* ImageCache.swift */,
-				A160438D2731D76A006CAF24 /* DetailViewController.swift */,
-				A160438F2731D91A006CAF24 /* DetailView.storyboard */,
-				475F340E27340F0100F17530 /* DiskStorage.swift */,
-				A1ECF9F2273472E600CE99CA /* FavoritesView.storyboard */,
 			);
 			path = "Restaurant Project";
 			sourceTree = "<group>";
@@ -170,6 +157,83 @@
 				A1054C6E273187EA005FB57A /* Restaurant_ProjectUITestsLaunchTests.swift */,
 			);
 			path = "Restaurant ProjectUITests";
+			sourceTree = "<group>";
+		};
+		A1ECF9F42734E8D500CE99CA /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				475F34082733224700F17530 /* BottleRocketCoordinator.swift */,
+				475F34142734229100F17530 /* FavoritesCoordinator.swift */,
+				47A6CB342731A12A00692C57 /* Coordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		A1ECF9F52734E90D00CE99CA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A160438D2731D76A006CAF24 /* DetailViewController.swift */,
+				A1054C83273192B3005FB57A /* BottleRocketController.swift */,
+				475F3410273421A000F17530 /* FavoritesViewController.swift */,
+				A1054C4F273187E9005FB57A /* ViewController.swift */,
+				47A6CB3027319FDF00692C57 /* CollectionViewCell.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A1ECF9F62734E93F00CE99CA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1ECF9F2273472E600CE99CA /* FavoritesView.storyboard */,
+				A160438F2731D91A006CAF24 /* DetailView.storyboard */,
+				A1054C56273187EA005FB57A /* LaunchScreen.storyboard */,
+				47A6CB3227319FEA00692C57 /* CollectionViewCell.xib */,
+				A1054C51273187E9005FB57A /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A1ECF9F72734E95500CE99CA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A1054C8527319378005FB57A /* RestaurantViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A1ECF9F82734E95D00CE99CA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A1054C8727319384005FB57A /* RestaurantModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A1ECF9F92734E96D00CE99CA /* System FIles */ = {
+			isa = PBXGroup;
+			children = (
+				A1054C54273187EA005FB57A /* Assets.xcassets */,
+				A1054C4D273187E9005FB57A /* SceneDelegate.swift */,
+				A1054C4B273187E9005FB57A /* AppDelegate.swift */,
+			);
+			path = "System FIles";
+			sourceTree = "<group>";
+		};
+		A1ECF9FA2734E98200CE99CA /* CachingServices */ = {
+			isa = PBXGroup;
+			children = (
+				475F340E27340F0100F17530 /* DiskStorage.swift */,
+				A160438B2731B772006CAF24 /* ImageCache.swift */,
+			);
+			path = CachingServices;
+			sourceTree = "<group>";
+		};
+		A1ECF9FB2734E99400CE99CA /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				A1054C8927319678005FB57A /* Network.swift */,
+			);
+			path = NetworkServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

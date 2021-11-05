@@ -17,9 +17,11 @@ class ViewController: UIViewController {
     
     var delegate:ViewControllerDelegate?
     var viewModel = RestaurantViewModel()
+    var isLandscape = Bool()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
-    var isLandscape = Bool()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -80,12 +82,15 @@ extension ViewController:UICollectionViewDataSource
 {
     
     func setupViews(){
+        view.addSubview(collectionView)
+        
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
+        
         collectionView!.collectionViewLayout = layout
-        view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
@@ -103,7 +108,6 @@ extension ViewController:UICollectionViewDataSource
         cell.configure(model: viewModel.getRecordAtRow(row: indexPath.row))
         // If the cell is on the list of cells that are marked to be hearted in
         if viewModel.markedToBeChecked.contains(indexPath.row) {
-            
             cell.fillHeart()
         }
         
@@ -112,7 +116,7 @@ extension ViewController:UICollectionViewDataSource
     }
 }
 
-extension ViewController: UICollectionViewDelegate
+extension ViewController: UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedRestaurant = viewModel.getRecordAtRow(row: indexPath.row)
@@ -124,9 +128,6 @@ extension ViewController: UICollectionViewDelegate
             delegate?.done(selecteRestaurant: selectedRestaurant, completion: reloadCellCompletion)
         }
     }
-}
-extension ViewController: UICollectionViewDelegateFlowLayout
-{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.size.width
