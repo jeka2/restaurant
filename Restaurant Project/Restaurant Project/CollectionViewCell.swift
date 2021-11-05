@@ -46,6 +46,7 @@ class CollectionViewCell: UICollectionViewCell {
             self.model = model
             nameLabel.text = model.name
             categoryLabel.text = model.category
+            
             if let imageCache = ImageCache.shared.read(imageStr: model.backgroundImageURL) {
                 self.imageView.image = imageCache
             } else {

@@ -11,12 +11,13 @@ import UIKit
 class RestaurantViewModel {
     var restaurantInfo: RestaurantResponse? {
         didSet {
-            
+            fetchFavoriteStatuses()
             DispatchQueue.main.async {
                 self.updateUI?()
             }
         }
     }
+    var markedToBeChecked : [Int] = []
     func fetchRestaurantInfo(fromCache : Bool = false) {
         if fromCache {
             do {
@@ -40,6 +41,7 @@ class RestaurantViewModel {
     }
     
     var updateUI: (() -> ())?
+    var updateHeartUI: (() -> ())?
     
     func getRecordAtRow(row: Int) -> Restaurant? {
         if let restaurant = restaurantInfo?.restaurants[row] {
@@ -55,7 +57,29 @@ class RestaurantViewModel {
     
     init(fromCache : Bool = false) {
         fetchRestaurantInfo(fromCache: fromCache)
+        fetchFavoriteStatuses()
     }
     
+    func fetchFavoriteStatuses() {
+        do {
+            markedToBeChecked = []
+            let cachedRestaurants = try DiskStorage.read()
+            
+            if let restaurants = self.restaurantInfo?.restaurants {
+                for (i, restaurantToBeDisplayed) in restaurants.enumerated() {
+                    for restaurantInCache in cachedRestaurants! {
+                        if (restaurantToBeDisplayed.backgroundImageURL == restaurantInCache.backgroundImageURL)
+                        {
+                            markedToBeChecked.append(i)
+                        }
+                    }
+                }
+            }
+            
+            
+        } catch {
+            
+        }
+    }
     
 }

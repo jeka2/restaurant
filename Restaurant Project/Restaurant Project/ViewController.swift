@@ -13,7 +13,7 @@ protocol ViewControllerDelegate {
 }
 class ViewController: UIViewController {    
     @IBOutlet weak var tabBar: UITabBar!
-    var markedToBeChecked : [Int] = []
+    
     var delegate:ViewControllerDelegate?
     var viewModel = RestaurantViewModel()
     @IBOutlet weak var collectionView: UICollectionView!
@@ -47,26 +47,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        do {
-            markedToBeChecked = []
-            let cachedRestaurants = try DiskStorage.read()
-            var favoritedSpots: [Restaurant]
-            
-            if let restaurants = self.viewModel.restaurantInfo?.restaurants {
-                for (i, restaurantToBeDisplayed) in restaurants.enumerated() {
-                    for restaurantInCache in cachedRestaurants! {
-                        if (restaurantToBeDisplayed.backgroundImageURL == restaurantInCache.backgroundImageURL)
-                        {
-                            markedToBeChecked.append(i)
-                        }
-                    }
-                }
-            }
-            
-            
-        } catch {
-            self.viewModel.restaurantInfo
-        }
+        
     }
     
 //    func checkIfIpad()
@@ -95,6 +76,7 @@ extension ViewController:UICollectionViewDataSource
     func setupVM(){
         viewModel.updateUI =  { self.collectionView.reloadData() }
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfRows
     }
@@ -103,10 +85,12 @@ extension ViewController:UICollectionViewDataSource
         
         cell.configure(model: viewModel.getRecordAtRow(row: indexPath.row))
         // If the cell is on the list of cells that are marked to be hearted in
-        if markedToBeChecked.contains(indexPath.row) {
+        if viewModel.markedToBeChecked.contains(indexPath.row) {
             cell.fillHeart()
         }
+        
         return cell
+        
     }
 }
 

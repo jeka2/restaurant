@@ -94,19 +94,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Od1-uI-omc">
-                                <rect key="frame" x="327" y="112" width="67" height="31"/>
+                                <rect key="frame" x="327" y="129" width="24" height="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
                                     <action selector="favoriteTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="llr-GG-CZO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8X-F3-3Fg">
-                                <rect key="frame" x="327" y="328" width="67" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="unfavoriteTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="byN-Ey-YS2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -117,13 +109,9 @@
                             <constraint firstItem="8sm-ty-4gQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="38" id="57e-9U-aYn"/>
                             <constraint firstItem="8sm-ty-4gQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="58f-HZ-Tv8"/>
                             <constraint firstItem="aIu-Qz-19Z" firstAttribute="top" secondItem="8sm-ty-4gQ" secondAttribute="bottom" id="7O0-LI-p1g"/>
-                            <constraint firstItem="aIu-Qz-19Z" firstAttribute="top" secondItem="k8X-F3-3Fg" secondAttribute="bottom" constant="36.5" id="7d4-N3-dCh"/>
-                            <constraint firstItem="k8X-F3-3Fg" firstAttribute="top" secondItem="Od1-uI-omc" secondAttribute="bottom" constant="185" id="GVg-ew-dIR"/>
                             <constraint firstItem="aIu-Qz-19Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="J0E-8d-YHG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gzG-Se-ouw" secondAttribute="bottom" id="SVZ-W0-LIw"/>
                             <constraint firstItem="Od1-uI-omc" firstAttribute="leading" secondItem="8sm-ty-4gQ" secondAttribute="trailing" constant="-87" id="aFF-VH-w4F"/>
-                            <constraint firstItem="k8X-F3-3Fg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="327" id="fQd-t7-dbW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k8X-F3-3Fg" secondAttribute="trailing" constant="20" id="gPe-4J-bRC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aIu-Qz-19Z" secondAttribute="trailing" id="hTd-Ui-ufr"/>
                             <constraint firstItem="8sm-ty-4gQ" firstAttribute="top" secondItem="Od1-uI-omc" secondAttribute="bottom" constant="-61" id="nxF-nC-c4M"/>
                             <constraint firstItem="8sm-ty-4gQ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.35" id="peL-ow-7kE"/>
