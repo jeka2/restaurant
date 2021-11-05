@@ -13,6 +13,7 @@ protocol ViewControllerDelegate {
 }
 class ViewController: UIViewController {    
     @IBOutlet weak var tabBar: UITabBar!
+    var markedToBeChecked : [Int] = []
     var delegate:ViewControllerDelegate?
     var viewModel = RestaurantViewModel()
     @IBOutlet weak var collectionView: UICollectionView!
@@ -22,7 +23,9 @@ class ViewController: UIViewController {
         setupViews()
         setupNavBar()
       }
-    
+    // have to compare to main view the stuff in the disktorage to get whether favorited or not
+    // If it exists in the diskstorage, add a filled heart thing to the cell it would probably be
+    // boolean 0 for not filled, and 1 for filled
     func setupNavBar(){
         
 
@@ -41,6 +44,29 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         setupVM()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        do {
+            markedToBeChecked = []
+            let cachedRestaurants = try DiskStorage.read()
+            var favoritedSpots: [Restaurant]
+            
+            if let restaurants = self.viewModel.restaurantInfo?.restaurants {
+                for (i, restaurantToBeDisplayed) in restaurants.enumerated() {
+                    for restaurantInCache in cachedRestaurants! {
+                        if (restaurantToBeDisplayed.backgroundImageURL == restaurantInCache.backgroundImageURL)
+                        {
+                            markedToBeChecked.append(i)
+                        }
+                    }
+                }
+            }
+            
+            
+        } catch {
+            self.viewModel.restaurantInfo
+        }
     }
     
 //    func checkIfIpad()
@@ -74,7 +100,12 @@ extension ViewController:UICollectionViewDataSource
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        
         cell.configure(model: viewModel.getRecordAtRow(row: indexPath.row))
+        // If the cell is on the list of cells that are marked to be hearted in
+        if markedToBeChecked.contains(indexPath.row) {
+            cell.fillHeart()
+        }
         return cell
     }
 }

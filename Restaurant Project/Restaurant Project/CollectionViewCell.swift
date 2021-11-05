@@ -6,13 +6,21 @@
 //
 
 import UIKit
+import MapKit
 
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var heartImageView: UIImageView!
+    
+    var favorited = false
     
     private var model : Restaurant?
+    
+    override func didMoveToSuperview() {
+        heartImageView.image = favorited == true ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +33,12 @@ class CollectionViewCell: UICollectionViewCell {
         categoryLabel.layer.zPosition = 1
         
         imageView.contentMode = UIView.ContentMode.scaleAspectFill
+    
+    }
+    
+    
+    func fillHeart() {
+        favorited = true
     }
     
     func configure(model: Restaurant?) {
