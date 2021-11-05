@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var viewModel = RestaurantViewModel()
     var isLandscape = Bool()
     
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -109,6 +110,10 @@ extension ViewController:UICollectionViewDataSource
         // If the cell is on the list of cells that are marked to be hearted in
         if viewModel.markedToBeChecked.contains(indexPath.row) {
             cell.fillHeart()
+        }
+        cell.reloadSelfClosure = {
+            self.viewModel.fetchFavoriteStatuses()
+            self.collectionView.reloadItems(at: [indexPath])
         }
         
         return cell
