@@ -30,6 +30,8 @@ struct DiskStorage {
         let restaurantObjects = try JSONDecoder().decode([Restaurant].self, from: d)
                
         // Below is the most clever thing I have ever written
+        // The restaurant that is provided as the value is toggled between
+        // being a part of the object or not
         var filteredArr = restaurantObjects.filter { $0.backgroundImageURL != value?.backgroundImageURL }
         if filteredArr.count == restaurantObjects.count {
             filteredArr.append(value!)
