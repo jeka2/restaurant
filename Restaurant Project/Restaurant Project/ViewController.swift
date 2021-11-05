@@ -13,23 +13,22 @@ protocol ViewControllerDelegate {
 }
 class ViewController: UIViewController {
     
-    
     @IBOutlet weak var tabBar: UITabBar!
     var delegate:ViewControllerDelegate?
     var viewModel = RestaurantViewModel()
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
-    var isLandscape:Bool = false
+    var isLandscape = Bool()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupNavBar()
         
-      }
+    }
     
     func setupNavBar(){
         self.navigationController?.navigationBar.tintColor = .white
-          //  .navigationBarTitle("Todo Lists", displayMode: .inline)
+        //  .navigationBarTitle("Todo Lists", displayMode: .inline)
         self.navigationController?.navigationBar.titleTextAttributes =
         [NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1.0),
          NSAttributedString.Key.font: UIFont(name:"Avenir Next Demi Bold",size:17) ?? 0]
@@ -48,10 +47,10 @@ class ViewController: UIViewController {
         
         
         if UIDevice.current.orientation.isLandscape {
-                isLandscape = true
-            }
+            isLandscape = true
+        }
         if(UIDevice.current.orientation.isPortrait){
-                isLandscape = false
+            isLandscape = false
         }
         collectionView.collectionViewLayout.invalidateLayout()
     }
@@ -61,10 +60,10 @@ extension ViewController:UICollectionViewDataSource
     
     func setupViews(){
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-                layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-                layout.minimumInteritemSpacing = 0
-                layout.minimumLineSpacing = 0
-                collectionView!.collectionViewLayout = layout
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        collectionView!.collectionViewLayout = layout
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -97,7 +96,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.size.width
-       
+        
         if (width > 900 && isLandscape == true)
         {
             print("width/2 = \(width/2)")
@@ -107,6 +106,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout
         }
         return CGSize(width:(width), height:180)
     }
-  
+    
 }
 

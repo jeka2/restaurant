@@ -48,7 +48,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="HXw-Oa-Yce" id="zYk-KP-dY6"/>
+                        <outlet property="favoritesCollectionView" destination="HXw-Oa-Yce" id="4Df-Cm-ab8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
