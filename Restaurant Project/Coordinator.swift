@@ -21,9 +21,10 @@ extension Coordinator: ViewControllerDelegate {
         navigationController.pushViewController(vc, animated: true)
     }
 
-    func done( selecteRestaurant:Restaurant) {
+    func done( selecteRestaurant:Restaurant, completion: @escaping () -> ()) {
         let vc = UIStoryboard(name: "DetailView", bundle: nil).instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
         vc.setModel(model: selecteRestaurant)
+        vc.updateFavoriteStatusOfCellThatOwnsThis = completion
         navigationController.pushViewController(vc, animated: true)
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ViewControllerDelegate {
-    func done(selecteRestaurant:Restaurant)
+    func done(selecteRestaurant:Restaurant, completion: @escaping () -> ())
     func pushFavorites()
 }
 class ViewController: UIViewController {    
@@ -86,6 +86,7 @@ extension ViewController:UICollectionViewDataSource
         cell.configure(model: viewModel.getRecordAtRow(row: indexPath.row))
         // If the cell is on the list of cells that are marked to be hearted in
         if viewModel.markedToBeChecked.contains(indexPath.row) {
+            
             cell.fillHeart()
         }
         
@@ -99,7 +100,11 @@ extension ViewController: UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedRestaurant = viewModel.getRecordAtRow(row: indexPath.row)
         if let selectedRestaurant = selectedRestaurant {
-            delegate?.done(selecteRestaurant: selectedRestaurant)
+            let reloadCellCompletion = {
+                self.viewModel.fetchFavoriteStatuses()
+                self.collectionView.reloadItems(at: [indexPath])
+            }
+            delegate?.done(selecteRestaurant: selectedRestaurant, completion: reloadCellCompletion)
         }
     }
 }

@@ -62,6 +62,7 @@ class RestaurantViewModel {
     
     func fetchFavoriteStatuses() {
         do {
+            
             markedToBeChecked = []
             let cachedRestaurants = try DiskStorage.read()
             
@@ -75,6 +76,7 @@ class RestaurantViewModel {
                     }
                 }
             }
+            
             
             
         } catch {
