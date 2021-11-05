@@ -33,10 +33,10 @@ class FavoritesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel = RestaurantViewModel(fromCache: true)
+        favoritesCollectionView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
     }
     
     private func setupCollectionView() {

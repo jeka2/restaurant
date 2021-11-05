@@ -12,14 +12,28 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var heartImageView: UIImageView!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     var favorited = false
-    
     private var model : Restaurant?
     
+    @IBAction func favoriteButtonClicked(_ sender: Any) {
+        do {
+            try DiskStorage.modify(withKey: "favorite-restaurants", value: self.model)
+            favorited = !favorited
+            reloadSelfClosure?()
+        } catch {
+            print(error)
+        }
+    }
+    
     override func didMoveToSuperview() {
-        heartImageView.image = favorited == true ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+        toggleHeartFilled()
+    }
+    
+    private func toggleHeartFilled() {
+        let heartType : UIImage = favorited == true ? UIImage(systemName: "heart.fill")! : UIImage(systemName: "heart")!
+        favoriteButton.setImage(heartType, for: [])
     }
     
     override func awakeFromNib() {
@@ -36,6 +50,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     }
     
+    var reloadSelfClosure:  (() -> ())?
     
     func fillHeart() {
         favorited = true
