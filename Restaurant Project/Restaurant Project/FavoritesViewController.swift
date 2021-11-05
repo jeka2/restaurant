@@ -78,11 +78,7 @@ extension FavoritesViewController : UICollectionViewDelegateFlowLayout {
 
 extension FavoritesViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let viewModel = viewModel {
-            
-            return viewModel.numberOfRows
-            
-        } else { return 0 }
+        if let viewModel = viewModel { return viewModel.numberOfRows } else { return 0 }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

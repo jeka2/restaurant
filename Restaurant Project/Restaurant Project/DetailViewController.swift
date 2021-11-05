@@ -17,6 +17,9 @@ class DetailViewController: UIViewController {
     var locationManager = CLLocationManager()
     
     @IBOutlet weak var favoriteButton: UIButton!
+    
+    
+    @IBOutlet weak var favoritedImageView: UIImageView!
     @IBOutlet weak var titleSection: UIView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var titleBackgroundView: UIView!
@@ -30,20 +33,23 @@ class DetailViewController: UIViewController {
     
     @IBAction func favoriteTapped(_ sender: Any) {
         do {
-            try DiskStorage.save(withKey: "favorite-restaurants", value: self.model)
+            try DiskStorage.modify(withKey: "favorite-restaurants", value: self.model)
+            updateFavoriteStatusOfCellThatOwnsThis?()
         } catch {
             print(error)
         }
     }
     
+    var updateFavoriteStatusOfCellThatOwnsThis : (() -> ())?
+    
     override func viewDidAppear(_ animated: Bool) {
+        favoriteButton.setImage(UIImage(systemName: "heart"), for: [])
         titleLabel.layer.zPosition = 1
         categoryLabel.layer.zPosition = 1
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        favoriteButton = UIButton.createStandardButton()
+        favoriteButton.imageView?.image = UIImage(systemName: "heart")
         configureModel()
     }
     override func awakeFromNib() {

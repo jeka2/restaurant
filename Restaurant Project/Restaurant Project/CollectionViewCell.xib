@@ -31,6 +31,13 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ev-FG-XeK">
                         <rect key="frame" x="0.0" y="0.0" width="249" height="142"/>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QDD-s6-5yX">
+                        <rect key="frame" x="188" y="11" width="41" height="53"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="41" id="0Sq-nt-VNZ"/>
+                            <constraint firstAttribute="height" constant="53" id="oBd-JF-e7N"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -41,17 +48,20 @@
                 <constraint firstAttribute="bottom" secondItem="CAJ-TJ-hJ6" secondAttribute="bottom" constant="6" id="9gP-9H-M1v"/>
                 <constraint firstItem="4ev-FG-XeK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Fvt-7a-5Px"/>
                 <constraint firstItem="CAJ-TJ-hJ6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="Lxw-je-57P"/>
+                <constraint firstItem="4ev-FG-XeK" firstAttribute="top" secondItem="QDD-s6-5yX" secondAttribute="bottom" constant="-64" id="Mgr-cj-irf"/>
                 <constraint firstItem="CAJ-TJ-hJ6" firstAttribute="top" secondItem="ELZ-j5-fMw" secondAttribute="bottom" constant="5" id="Yrw-x7-gsh"/>
                 <constraint firstAttribute="trailing" secondItem="4ev-FG-XeK" secondAttribute="trailing" id="fJx-d7-qIK"/>
+                <constraint firstItem="QDD-s6-5yX" firstAttribute="leading" secondItem="4ev-FG-XeK" secondAttribute="trailing" constant="-61" id="gVj-9L-cuT"/>
                 <constraint firstItem="CAJ-TJ-hJ6" firstAttribute="leading" secondItem="ELZ-j5-fMw" secondAttribute="leading" id="pAA-9Y-FCJ"/>
             </constraints>
             <size key="customSize" width="249" height="142"/>
             <connections>
                 <outlet property="categoryLabel" destination="CAJ-TJ-hJ6" id="ESK-RG-1iC"/>
+                <outlet property="heartImageView" destination="QDD-s6-5yX" id="wMz-Ey-zww"/>
                 <outlet property="imageView" destination="4ev-FG-XeK" id="gWm-CI-Gqc"/>
                 <outlet property="nameLabel" destination="ELZ-j5-fMw" id="HxC-TT-CP7"/>
             </connections>
-            <point key="canvasLocation" x="-204" y="-222"/>
+            <point key="canvasLocation" x="-205.07246376811597" y="-222.32142857142856"/>
         </collectionViewCell>
     </objects>
 </document>

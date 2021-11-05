@@ -9,7 +9,7 @@ enum DiskStorageError: Error {
 
 struct DiskStorage {
     
-    static func save(withKey key: String, value: Restaurant?, using fileManager: FileManager = .default) throws {
+    static func modify(withKey key: String, value: Restaurant?, using fileManager: FileManager = .default) throws {
         let cacheDirectory = FileManager.SearchPathDirectory.cachesDirectory
         
         let folderURLs = fileManager.urls(for: cacheDirectory, in: .userDomainMask)
@@ -35,15 +35,18 @@ struct DiskStorage {
             return
         }
         
-        var restaurantObjects = try JSONDecoder().decode([Restaurant].self, from: d)
-        
-        restaurantObjects.append(value!)
-        
+        let restaurantObjects = try JSONDecoder().decode([Restaurant].self, from: d)
+               
+        // Below is the most clever thing I have ever written
+        var filteredArr = restaurantObjects.filter { $0.backgroundImageURL != value?.backgroundImageURL }
+        if filteredArr.count == restaurantObjects.count {
+            filteredArr.append(value!)
+        }
 
     //
         print("FILE URL: \(fileURL)")
         
-        let data: Data = try JSONEncoder().encode(restaurantObjects)
+        let data: Data = try JSONEncoder().encode(filteredArr)
         
         try data.write(to: fileURL)
     }
@@ -68,9 +71,5 @@ struct DiskStorage {
         let object = try JSONDecoder().decode([Restaurant].self, from: data)
         
         return object
-    }
-    
-    static func delete(fromKey key: String, using fileManager: FileManager = .default) {
-        
     }
 }

@@ -8,12 +8,13 @@
 import UIKit
 
 protocol ViewControllerDelegate {
-    func done(selecteRestaurant:Restaurant)
+    func done(selecteRestaurant:Restaurant, completion: @escaping () -> ())
     func pushFavorites()
 }
 class ViewController: UIViewController {
     
     @IBOutlet weak var tabBar: UITabBar!
+    
     var delegate:ViewControllerDelegate?
     var viewModel = RestaurantViewModel()
     @IBOutlet weak var collectionView: UICollectionView!
@@ -24,8 +25,8 @@ class ViewController: UIViewController {
         setupViews()
         setupNavBar()
         
+        
     }
-    
     func setupNavBar(){
         self.navigationController?.navigationBar.tintColor = .white
         //  .navigationBarTitle("Todo Lists", displayMode: .inline)
@@ -43,6 +44,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         setupVM()
     }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
         
@@ -54,6 +56,25 @@ class ViewController: UIViewController {
         }
         collectionView.collectionViewLayout.invalidateLayout()
     }
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
+//    func checkIfIpad()
+//    {
+//        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+//        {
+//            print("IPAD")
+//            return YES; /* Device is iPad */
+//        }
+//        else
+//        {
+//            print("NOT IPAD")
+//        }
+//
+//    }
 }
 extension ViewController:UICollectionViewDataSource
 {
@@ -72,13 +93,22 @@ extension ViewController:UICollectionViewDataSource
     func setupVM(){
         viewModel.updateUI =  { self.collectionView.reloadData() }
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfRows
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        
         cell.configure(model: viewModel.getRecordAtRow(row: indexPath.row))
+        // If the cell is on the list of cells that are marked to be hearted in
+        if viewModel.markedToBeChecked.contains(indexPath.row) {
+            
+            cell.fillHeart()
+        }
+        
         return cell
+        
     }
 }
 
@@ -87,7 +117,11 @@ extension ViewController: UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedRestaurant = viewModel.getRecordAtRow(row: indexPath.row)
         if let selectedRestaurant = selectedRestaurant {
-            delegate?.done(selecteRestaurant: selectedRestaurant)
+            let reloadCellCompletion = {
+                self.viewModel.fetchFavoriteStatuses()
+                self.collectionView.reloadItems(at: [indexPath])
+            }
+            delegate?.done(selecteRestaurant: selectedRestaurant, completion: reloadCellCompletion)
         }
     }
 }
