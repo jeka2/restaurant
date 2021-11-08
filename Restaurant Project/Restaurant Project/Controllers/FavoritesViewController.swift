@@ -22,15 +22,18 @@ class FavoritesViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
      
+        if (tabBarController?.selectedIndex != 2) {return}
+        
         if UIDevice.current.orientation.isLandscape {
                 isLandscape = true
             }
         if(UIDevice.current.orientation.isPortrait){
                 isLandscape = false
         }
+       
+        favoritesCollectionView.collectionViewLayout.invalidateLayout()
     }
 
-    
     override func viewWillAppear(_ animated: Bool) {
         viewModel = RestaurantViewModel(fromCache: true)
         favoritesCollectionView.reloadData()
@@ -47,7 +50,7 @@ class FavoritesViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         
-        favoritesCollectionView!.collectionViewLayout = layout
+        favoritesCollectionView.collectionViewLayout = layout
         favoritesCollectionView.delegate = self
         favoritesCollectionView.dataSource = self
         favoritesCollectionView.register(UINib(nibName: "CollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "cell")
@@ -67,7 +70,7 @@ class FavoritesViewController: UIViewController {
 extension FavoritesViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.size.width
-        if (width > 900 && isLandscape == true)
+        if (width > 743 && isLandscape == true)
         {
             return CGSize(width:(width/2), height:180)
         }

@@ -19,11 +19,5 @@ class FavoritesCoordinator{
          NSAttributedString.Key.font: UIFont(name:"Avenir Next Demi Bold",size:17) ?? 0]
     }
 }
-//
-//extension FavoritesCoordinator: FavoritesVCDelegate {
-//    func done( ) {
-////         let vc = DetailViewController()
-////        navigationController.pushViewController(vc, animated: true)
-//    }
-//}
+
 
