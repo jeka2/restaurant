@@ -17,6 +17,8 @@ struct DiskStorage {
         guard let fileURL = folderURLs.first?.appendingPathComponent(key + ".cache") else {
             throw DiskStorageError.missingFile
         }
+        
+        print(fileURL)
         guard let d = fileManager.contents(atPath: fileURL.path) else {
             do {
                 let data : Data = try JSONEncoder().encode([value])

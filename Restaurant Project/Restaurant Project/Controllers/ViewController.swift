@@ -9,7 +9,7 @@ import UIKit
 
 protocol ViewControllerDelegate {
     func done(selecteRestaurant:Restaurant, completion: @escaping () -> ())
-    func pushFavorites()
+    //bfunc pushFavorites()
 }
 class ViewController: UIViewController {
     
@@ -49,8 +49,10 @@ class ViewController: UIViewController {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if (tabBarController?.selectedIndex != 0) {return}
         
-        
+        //the viewWillTransition in a tabBarController applies to all views in the tab bar,
+        //this limits it to the one currrently on screen
         if UIDevice.current.orientation.isLandscape {
             isLandscape = true
         }
@@ -59,25 +61,7 @@ class ViewController: UIViewController {
         }
         collectionView.collectionViewLayout.invalidateLayout()
     }
-
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
-    
-//    func checkIfIpad()
-//    {
-//        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
-//        {
-//            print("IPAD")
-//            return YES; /* Device is iPad */
-//        }
-//        else
-//        {
-//            print("NOT IPAD")
-//        }
-//
-//    }
 }
 extension ViewController:UICollectionViewDataSource
 {
@@ -140,9 +124,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout
         
         if (width > 900 && isLandscape == true)
         {
-            print("width/2 = \(width/2)")
-            print("Collectionview.bounds.width: \(collectionView.bounds.size.width)")
-            print("width: \(width)")
             return CGSize(width:(width/2), height:180)
         }
         return CGSize(width:(width), height:180)
